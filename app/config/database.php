@@ -2,8 +2,8 @@
 $active_group = 'simponi';
 $active_record = TRUE;
 $db['simponi']['hostname'] = "localhost";
-$db['simponi']['username'] = "dev";
-$db['simponi']['password'] = "devdag2017";
+$db['simponi']['username'] = "root";
+$db['simponi']['password'] = "";
 $db['simponi']['database'] = "simponi";
 $db['simponi']['dbdriver'] = "mysqli";
 $db['simponi']['dbprefix'] = '';
