@@ -7,6 +7,19 @@
     <link href="<?php echo base_url() ?>assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() ?>assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <link href="<?php echo base_url() ?>assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- choices css -->
+    <link href="<?php echo base_url() ?>assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- color picker css -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/libs/@simonwep/pickr/themes/classic.min.css" />
+    <!-- 'classic' theme -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/libs/@simonwep/pickr/themes/monolith.min.css" />
+    <!-- 'monolith' theme -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/libs/@simonwep/pickr/themes/nano.min.css" />
+    <!-- 'nano' theme -->
+
+    <!-- datepicker css -->
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/libs/flatpickr/flatpickr.min.css">
 </head>
 
 <body>
@@ -17,9 +30,9 @@
     <div id="layout-wrapper">
 
         <?php $this->load->view("admin/partials/header.php") ?>
-        
+
         <?php $this->load->view("admin/partials/menu.php") ?>
-        
+
         <!-- ============================================================== -->
         <!-- Start right Content here -->
         <!-- ============================================================== -->
@@ -58,16 +71,77 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <div>
+                                                <h5 class="font-size-14 mb-4">Form groups</h5>
+                                                <form action="<?php echo site_url('index.php/admin/Billing/index') ?>" method="post">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="detail" class="col-sm-3 col-form-label">Nama</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" id="detail" name="detail">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="billing_id" class="col-sm-3 col-form-label">ID Billing</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" id="billing_id" name="billing_id">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="datepicker-basic" class="col-sm-3 col-form-label">Tanggal Billing</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="date" class="form-control" id="datepicker-basic" name="date_register">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="status_label" class="col-sm-3 col-form-label">Status</label>
+                                                                <div class="col-sm-9">
+                                                                <select class="form-control" data-trigger name="status" id="choices-single-default" placeholder="Test">
+                                                                    <option value="" readonly hidden>Pilih Status</option>
+                                                                    <option value="Baru">Baru</option>
+                                                                    <option value="Terkirim">Terkirim</option>
+                                                                    <option value="Kirim Ulang">Kirim Ulang</option>
+                                                                    <option value="Tidak Terkirim">Tidak Terkirim</option>
+                                                                    <option value="Belum Terbayar">Belum Terbayar</option>
+                                                                    <option value="Terbayar">Terbayar</option>
+                                                                    <option value="Selesai">Selesai</option>
+                                                                    <option value="Tidak Berlaku">Tidak Berlaku</option>
+                                                                </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mt-1">
+                                                        <button type="submit"
+                                                            class="btn btn-primary w-md">Cari</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
                                         <thead>
                                             <tr>
-                                                <th class="text-wrap">Nomor</th>
-                                                <th class="text-wrap">Nama PT</th>
-                                                <th class="text-wrap">NPWP</th>
-                                                <th class="text-wrap">ID Transaksi</th>
-                                                <th class="text-wrap">ID Simponi</th>
+                                                <th class="text-wrap">No</th>
+                                                <th class="text-wrap">Nama</th>
                                                 <th class="text-wrap">ID Billing</th>
+                                                <th class="text-wrap">Tanggal Billing</th>
+                                                <th class="text-wrap">Jumlah</th>
+                                                <th class="text-wrap">Status</th>
                                                 <th class="text-wrap">Error</th>
                                                 <th class="text-wrap">Error Pembayaran</th>
                                                 <!-- <th class="text-wrap">Aksi</th> -->
@@ -75,20 +149,20 @@
                                         </thead>
                                         <tbody>
                                             <?php foreach ($billing as $key => $item) : ?>
-                                                <tr>
-                                                    <td class="text-wrap"><?php echo $key+1 ?></td>
-                                                    <td class="text-wrap"><?php echo $item->detail ?></td>
-                                                    <td class="text-wrap"><?php echo $item->npwp ?></td>
-                                                    <td class="text-wrap"><?php echo $item->transaction_id ?></td>
-                                                    <td class="text-wrap"><?php echo $item->simponi_id ?></td>
-                                                    <td class="text-wrap"><?php echo $item->billing_id ?></td>
-                                                    <td class="text-wrap"><?php echo ($item->error !== null) ? $item->error : '-' ?></td>
-                                                    <td class="text-wrap"><?php echo ($item->error_pay !== null) ? $item->error_pay : '-' ?></td>
-                                                    <!-- <td class="text-wrap">
+                                            <tr>
+                                                <td><span class="text-wrap"><?php echo $key+1 ?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->detail ?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->billing_id ?></span></td>
+                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_register)) ?></span></td>
+                                                <td class="text-end"><span class="text-wrap"><?php echo number_format($item->total);?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->name ?></span></td>
+                                                <td><span class="text-wrap"><?php echo ($item->error !== null) ? $item->error : '-' ?></span></td>
+                                                <td><span class="text-wrap"><?php echo ($item->error_pay !== null) ? $item->error_pay : '-' ?></span></td>
+                                                <!-- <td class="text-wrap">
                                                         <a href="" class="btn btn-info">Ubah</a>
                                                         <a href="" class="btn btn-danger">Hapus</a>
                                                     </td> -->
-                                                </tr>
+                                            </tr>
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
@@ -103,7 +177,7 @@
                 <!-- container-fluid -->
             </div>
         </div>
-        
+
         <?php $this->load->view("admin/partials/footer.php") ?>
 
         <!-- end main content-->
@@ -112,7 +186,7 @@
     <!-- END layout-wrapper -->
 
     <?php $this->load->view("admin/partials/sidebar.php") ?>
-    
+
     <?php $this->load->view("admin/partials/script.php") ?>
     <!-- Required datatable js -->
     <script src="<?php echo base_url() ?>assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -131,6 +205,15 @@
     <script src="<?php echo base_url() ?>assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
     <!-- Datatable init js -->
     <script src="<?php echo base_url() ?>assets/js/pages/datatables.init.js"></script>
+    <!-- choices js -->
+    <script src="<?php echo base_url() ?>assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <!-- color picker js -->
+    <script src="<?php echo base_url() ?>assets/libs/@simonwep/pickr/pickr.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
+    <!-- datepicker js -->
+    <script src="<?php echo base_url() ?>assets/libs/flatpickr/flatpickr.min.js"></script>
+    <!-- init js -->
+    <script src="<?php echo base_url() ?>assets/js/pages/form-advanced.init.js"></script>
 
 </body>
 

@@ -9,7 +9,7 @@
                             </span>
                             <span class="logo-lg">
                                 <img src="<?php echo base_url() ?>assets/images/logo-sm.svg" alt="" height="24"> <span
-                                    class="logo-txt">Minia</span>
+                                    class="logo-txt">E-Payment</span>
                             </span>
                         </a>
 
@@ -19,7 +19,7 @@
                             </span>
                             <span class="logo-lg">
                                 <img src="<?php echo base_url() ?>assets/images/logo-sm.svg" alt="" height="24"> <span
-                                    class="logo-txt">Minia</span>
+                                    class="logo-txt">E-Payment</span>
                             </span>
                         </a>
                     </div>
