@@ -7,6 +7,13 @@
     <div id="sidebar-menu">
         <!-- Left Menu Start -->
         <ul class="metismenu list-unstyled" id="side-menu">
+            <li>
+                <a href="<?php echo base_url(); ?>index.php/admin/Dashboard">
+                    <i class="mdi mdi-home-account"></i>
+                    <span data-key="t-dashboard">Dashboard</span>
+                </a>
+            </li>
+
             <li class="menu-title" data-key="t-menu">Menu</li>
             <li>
                 <a href="<?php echo base_url(); ?>index.php/admin/Billing">
