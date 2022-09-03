@@ -28,7 +28,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="<?php echo site_url("index.php/admin/Bank/create") ?>">
                             <span data-key="t-tambah-bank">Tambah Bank</span>
                         </a>
                     </li>
@@ -48,7 +48,7 @@
                     </li>
 
                     <li>
-                        <a href="#">
+                        <a href="<?php echo site_url("index.php/admin/Department/create") ?>">
                             <span data-key="t-tambah-departemen">Tambah Departemen</span>
                         </a>
                     </li>

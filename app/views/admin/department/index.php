@@ -36,8 +36,7 @@
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript:
-                                                void(0);">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('index.php/admin') ?>">Dashboard</a></li>
                                         <li class="breadcrumb-item active">Departemen</li>
                                     </ol>
                                 </div>
@@ -54,7 +53,7 @@
                                     <div class="row justify-content-between align-items-center">
                                         <h4 class="card-title col-6">Daftar Departemen</h4>
                                         <div class="col-6 text-end">
-                                            <a href="" class="btn btn-primary">Tambah <span class="d-none d-md-inline">Departemen</span></a>
+                                            <a href="<?php echo site_url("index.php/admin/Department/create") ?>" class="btn btn-primary">Tambah <span class="d-none d-md-inline">Departemen</span></a>
                                         </div>
                                     </div>
                                 </div>
@@ -81,8 +80,8 @@
                                                     <td class="text-wrap"><?php echo $item->pnbp ?></td>
                                                     <td class="text-wrap"><?php echo $item->user_id ?></td>
                                                     <td class="text-wrap">
-                                                        <a href="" class="btn btn-info">Ubah</a>
-                                                        <a href="" class="btn btn-danger">Hapus</a>
+                                                        <a href="<?php echo site_url('index.php/admin/Department/edit/'.$item->id) ?>" class="btn btn-info">Ubah</a>
+                                                        <a href="<?php echo site_url('index.php/admin/Department/delete/'.$item->id) ?>" class="btn btn-danger">Hapus</a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

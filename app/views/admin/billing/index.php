@@ -49,7 +49,7 @@
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript:void(0);">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('index.php/admin') ?>">Dashboard</a></li>
                                         <li class="breadcrumb-item active">Billing</li>
                                     </ol>
                                 </div>
@@ -124,6 +124,17 @@
                                                         </div>
                                                     </div>
 
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="datepicker-basic" class="col-sm-3 col-form-label">Tanggal Bayar</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="date" class="form-control" id="datepicker-basic" name="date_simponi">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
                                                     <div class="mt-1">
                                                         <button type="submit"
                                                             class="btn btn-primary w-md">Cari</button>
@@ -140,6 +151,7 @@
                                                 <th class="text-wrap">Nama</th>
                                                 <th class="text-wrap">ID Billing</th>
                                                 <th class="text-wrap">Tanggal Billing</th>
+                                                <th class="text-wrap">Tanggal Bayar</th>
                                                 <th class="text-wrap">Jumlah</th>
                                                 <th class="text-wrap">Status</th>
                                                 <th class="text-wrap">Error</th>
@@ -154,6 +166,7 @@
                                                 <td><span class="text-wrap"><?php echo $item->detail ?></span></td>
                                                 <td><span class="text-wrap"><?php echo $item->billing_id ?></span></td>
                                                 <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_register)) ?></span></td>
+                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_simponi)) ?></span></td>
                                                 <td class="text-end"><span class="text-wrap"><?php echo number_format($item->total);?></span></td>
                                                 <td><span class="text-wrap"><?php echo $item->name ?></span></td>
                                                 <td><span class="text-wrap"><?php echo ($item->error !== null) ? $item->error : '-' ?></span></td>

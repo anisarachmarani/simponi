@@ -34,7 +34,7 @@
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="<?php echo site_url('index.php/admin') ?>">Dashboard</a></li>
                                         <li class="breadcrumb-item"><a href="<?php echo site_url('index.php/admin/Bank') ?>">Bank</a></li>
-                                        <li class="breadcrumb-item active">Tambah Bank</li>
+                                        <li class="breadcrumb-item active">Ubah Bank</li>
                                     </ol>
                                 </div>
 
@@ -48,7 +48,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="row justify-content-between align-items-center">
-                                        <h4 class="card-title col-6">Tambah Bank</h4>
+                                        <h4 class="card-title col-6">Ubah Bank (<?php echo $bank->name ?>)</h4>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -56,18 +56,19 @@
                                     <div class="row">
                                         <div class="col-md-12 col-lg-6">
                                             <div class="mt-4 mt-lg-0">
-                                                <form action="<?php echo site_url("index.php/admin/Bank/store") ?>" method="POST">
+                                                <form action="<?php echo site_url("index.php/admin/Bank/update") ?>" method="POST">
+                                                <input type="hidden" name="id" value="<?php echo $bank->id?>" />
                                                     <div class="row mb-4">
                                                         <label for="name" class="col-sm-3 col-form-label">Nama Bank</label>
                                                         <div class="col-sm-9">
-                                                            <input type="text" class="form-control" id="name" name="name" required>
+                                                            <input type="text" class="form-control" id="name" name="name" value="<?php echo $bank->name ?>" required>
                                                         </div>
                                                     </div>
 
                                                     <div class="row mb-4">
                                                         <label for="code" class="col-sm-3 col-form-label">Kode Bank</label>
                                                         <div class="col-sm-9">
-                                                            <input type="text" class="form-control" id="code" name="code" required>
+                                                            <input type="text" class="form-control" id="code" name="code" value="<?php echo $bank->code ?>" required>
                                                         </div>
                                                     </div>
 

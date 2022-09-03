@@ -22,6 +22,7 @@ class Billing_model extends CI_Model
         $detail = $this->input->post('detail'); // $_POST['detail']
         $billing_id = $this->input->post('billing_id'); // $_POST['billing_id']
         $date_register = $this->input->post('date_register'); // $_POST['date_register']
+        $date_simponi = $this->input->post('date_simponi'); // $_POST['date_simponi']
         $status = $this->input->post('status'); // $_POST['status']
         $this->db->select('
           t_billing.*, m_reff.id AS status, m_reff.name, 
@@ -30,6 +31,7 @@ class Billing_model extends CI_Model
         $this->db->where("detail like '%$detail%' ");
         $this->db->where("billing_id like '%$billing_id%' ");
         $this->db->where("date_register like '%$date_register%' ");
+        $this->db->where("date_simponi like '%$date_simponi%' ");
         $this->db->where("name like '%$status%' ");
         $this->db->join('m_reff', 't_billing.status = m_reff.id'); // join table m_reff
         $this->db->from('t_billing');
