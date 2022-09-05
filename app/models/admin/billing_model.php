@@ -19,11 +19,19 @@ class Billing_model extends CI_Model
 
     public function getAll()
     {
+        
         $detail = $this->input->post('detail'); // $_POST['detail']
         $billing_id = $this->input->post('billing_id'); // $_POST['billing_id']
         $date_register = $this->input->post('date_register'); // $_POST['date_register']
         $date_simponi = $this->input->post('date_simponi'); // $_POST['date_simponi']
         $status = $this->input->post('status'); // $_POST['status']
+      
+        $this->session->set_userdata('detail',$detail);
+        $this->session->set_userdata('billing_id',$billing_id);
+        $this->session->set_userdata('date_register',$date_register);
+        $this->session->set_userdata('date_simponi',$date_simponi);
+        $this->session->set_userdata('status',$status);
+
         $this->db->select('
           t_billing.*, m_reff.id AS status, m_reff.name, 
         ');

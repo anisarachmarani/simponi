@@ -81,7 +81,7 @@
                                                             <div class="row mb-4">
                                                                 <label for="detail" class="col-sm-3 col-form-label">Nama</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" class="form-control" id="detail" name="detail">
+                                                                    <input type="text" class="form-control" id="detail" name="detail" value="<?php echo $this->session->userdata('detail') ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -89,7 +89,7 @@
                                                             <div class="row mb-4">
                                                                 <label for="billing_id" class="col-sm-3 col-form-label">ID Billing</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="text" class="form-control" id="billing_id" name="billing_id">
+                                                                    <input type="text" class="form-control" id="billing_id" name="billing_id" value="<?php echo $this->session->userdata('billing_id') ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -100,7 +100,7 @@
                                                             <div class="row mb-4">
                                                                 <label for="datepicker-basic" class="col-sm-3 col-form-label">Tanggal Billing</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="date" class="form-control" id="datepicker-basic" name="date_register">
+                                                                    <input type="date" class="form-control" id="datepicker-basic" name="date_register" value="<?php echo $this->session->userdata('date_register') ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -109,15 +109,15 @@
                                                                 <label for="status_label" class="col-sm-3 col-form-label">Status</label>
                                                                 <div class="col-sm-9">
                                                                 <select class="form-control" data-trigger name="status" id="choices-single-default" placeholder="Test">
-                                                                    <option value="" readonly hidden>Pilih Status</option>
-                                                                    <option value="Baru">Baru</option>
-                                                                    <option value="Terkirim">Terkirim</option>
-                                                                    <option value="Kirim Ulang">Kirim Ulang</option>
-                                                                    <option value="Tidak Terkirim">Tidak Terkirim</option>
-                                                                    <option value="Belum Terbayar">Belum Terbayar</option>
-                                                                    <option value="Terbayar">Terbayar</option>
-                                                                    <option value="Selesai">Selesai</option>
-                                                                    <option value="Tidak Berlaku">Tidak Berlaku</option>
+                                                                    <option value="">Semua Status</option>
+                                                                    <option <?php ($this->session->userdata('status') == 'Baru') ? 'selected' : '' ?> value="Baru">Baru</option>
+                                                                    <option <?php ($this->session->userdata('status') == 'Terkirim') ? 'selected' : '' ?> value="Terkirim">Terkirim</option>
+                                                                    <option <?php ($this->session->userdata('status') == 'Kirim Ulang') ? 'selected' : '' ?> value="Kirim Ulang">Kirim Ulang</option>
+                                                                    <option <?php ($this->session->userdata('status') == 'Tidak Terkirim') ? 'selected' : '' ?> value="Tidak Terkirim">Tidak Terkirim</option>
+                                                                    <option <?php ($this->session->userdata('status') == 'Belum Terbayar') ? 'selected' : '' ?> value="Belum Terbayar">Belum Terbayar</option>
+                                                                    <option <?php ($this->session->userdata('status') == 'Terbayarar') ? 'selected' : '' ?> value="Terbayar">Terbayar</option>
+                                                                    <option <?php ($this->session->userdata('status') == 'Selesai') ? 'selected' : '' ?> value="Selesai">Selesai</option>
+                                                                    <option <?php ($this->session->userdata('status') == 'Tidak Berlaku') ? 'selected' : '' ?> value="Tidak Berlaku">Tidak Berlaku</option>
                                                                 </select>
                                                                 </div>
                                                             </div>
@@ -129,7 +129,7 @@
                                                             <div class="row mb-4">
                                                                 <label for="datepicker-basic" class="col-sm-3 col-form-label">Tanggal Bayar</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="date" class="form-control" id="datepicker-basic" name="date_simponi">
+                                                                    <input type="date" class="form-control" id="datepicker-basic" name="date_simponi" value="<?php echo $this->session->userdata('date_simponi') ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
