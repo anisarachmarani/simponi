@@ -7,6 +7,8 @@ class Reff extends CI_Controller {
         parent::__construct();
         $this->load->model("admin/reff_model");
         // $this->load->library('form_validation');
+        $this->load->model('admin/auth_model');
+		$this->auth_model->cek_login();
     }
 
 	public function index()

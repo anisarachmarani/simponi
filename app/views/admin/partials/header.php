@@ -42,20 +42,17 @@
                     </div>
 
                     <div class="dropdown d-inline-block">
-                        <button type="button" class="btn header-item
-                                bg-soft-light border-start border-end" id="page-header-user-dropdown"
-                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="<?php echo base_url() ?>assets/images/users/avatar-1.jpg"
-                                alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1
-                                    fw-medium">Shawn L.</span>
+                        <button type="button" class="btn header-item bg-soft-light border-start border-end d-flex align-items-center" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!-- <img class="rounded-circle header-profile-user" src="<?php echo base_url() ?>assets/images/users/avatar-1.jpg" alt="Header Avatar"> -->
+                            <i class="mdi mdi-24px mdi-account-circle"></i>
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium"><?php echo $this->session->userdata('nama') ?></span>
                             <i class="mdi mdi-chevron-down d-none
                                     d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="#"><i class="mdi
-                                        mdi-logout font-size-16 align-middle
-                                        me-1"></i> Keluar</a>
+                            <a class="dropdown-item" href="<?php echo base_url('index.php/admin/Login/logout'); ?>">
+                                <i class="mdi mdi-logout font-size-16 align-middle me-1"></i> Keluar
+                            </a>
                         </div>
                     </div>
 
