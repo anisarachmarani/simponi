@@ -81,7 +81,8 @@ function onload(event) {
     }); 
     document.querySelector('#raterreset-button').addEventListener("click", function() {
         starRatingreset.clear();
+        console.log(starRatingreset.getRating());
     }, false);
 }
 
-onload();
+window.addEventListener("load", onload, false); 

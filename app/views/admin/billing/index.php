@@ -3,23 +3,7 @@
 
 <head>
     <?php $this->load->view("admin/partials/head.php") ?>
-    <!-- DataTables -->
-    <link href="<?php echo base_url() ?>assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() ?>assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <link href="<?php echo base_url() ?>assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <!-- choices css -->
-    <link href="<?php echo base_url() ?>assets/libs/choices.js/public/assets/styles/choices.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- color picker css -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/libs/@simonwep/pickr/themes/classic.min.css" />
-    <!-- 'classic' theme -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/libs/@simonwep/pickr/themes/monolith.min.css" />
-    <!-- 'monolith' theme -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/libs/@simonwep/pickr/themes/nano.min.css" />
-    <!-- 'nano' theme -->
-
-    <!-- datepicker css -->
-    <link rel="stylesheet" href="<?php echo base_url() ?>assets/libs/flatpickr/flatpickr.min.css">
+    <?php $this->load->view("admin/partials/css.php") ?>
 </head>
 
 <body>
@@ -144,42 +128,38 @@
                                         </div>
                                     </div>
 
-                                    <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
+                                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                         <thead>
                                             <tr>
-                                                <th class="">No</th>
-                                                <th class="">Nama</th>
-                                                <th class="">ID Billing</th>
-                                                <th class="">Tanggal Billing</th>
-                                                <th class="">Tanggal Simponi</th>
-                                                <th class="">Jumlah</th>
-                                                <th class="">Status</th>
-                                                <th class="">Error</th>
-                                                <th class="">Error Pembayaran</th>
-                                                <th class="">NPWP</th>
-                                                <th class="">Tanggal Expired</th>
-                                                <th class="">Tanggal Respon</th>
-                                                <!-- <th class="">Aksi</th> -->
+                                                <th>No</th>
+                                                <th>Nama</th>
+                                                <th>ID Billing</th>
+                                                <th>Tanggal Billing</th>
+                                                <th>Tanggal Simponi</th>
+                                                <th>Jumlah</th>
+                                                <th>Status</th>
+                                                <th>Error</th>
+                                                <th>Error Pembayaran</th>
+                                                <th>NPWP</th>
+                                                <th>Tanggal Expired</th>
+                                                <th>Tanggal Respon</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php foreach ($billing as $key => $item) : ?>
                                             <tr>
-                                                <td><?php echo $key+1 ?></td>
-                                                <td><?php echo $item->detail ?></td>
-                                                <td><?php echo $item->billing_id ?></td>
-                                                <td><?php echo date('d M Y', strtotime($item->date_register)) ?></td>
-                                                <td><?php echo date('d M Y', strtotime($item->date_simponi)) ?></td>
-                                                <td class="text-end"><?php echo number_format($item->total);?></td>
-                                                <td><?php echo ($item->error !== null) ? $item->error : '-' ?></td>
-                                                <td><?php echo ($item->error_pay !== null) ? $item->error_pay : '-' ?></td>
-                                                <td><?php echo $item->npwp ?></td>
-                                                <td><?php echo date('d M Y', strtotime($item->date_expired)) ?></td>
-                                                <td><?php echo date('d M Y', strtotime($item->date_response)) ?></td>
-                                                <!-- <td class="text-wrap">
-                                                        <a href="" class="btn btn-info">Ubah</a>
-                                                        <a href="" class="btn btn-danger">Hapus</a>
-                                                    </td> -->
+                                                <td><span class="text-wrap"><?php echo $key+1 ?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->detail ?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->billing_id ?></span></td>
+                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_register)) ?></span></td>
+                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_simponi)) ?></span></td>
+                                                <td class="text-end"><span class="text-wrap"><?php echo number_format($item->total);?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->name ?></span></td>
+                                                <td><span class="text-wrap"><?php echo ($item->error !== null) ? $item->error : '-' ?></span></td>
+                                                <td><span class="text-wrap"><?php echo ($item->error_pay !== null) ? $item->error_pay : '-' ?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->npwp ?></span></td>
+                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_expired)) ?></span></td>
+                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_response)) ?></span></td>
                                             </tr>
                                             <?php endforeach; ?>
                                         </tbody>
@@ -202,37 +182,11 @@
 
     </div>
     <!-- END layout-wrapper -->
-
+    
     <?php $this->load->view("admin/partials/sidebar.php") ?>
 
     <?php $this->load->view("admin/partials/script.php") ?>
-    <!-- Required datatable js -->
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Buttons examples -->
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/jszip/jszip.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <!-- Responsive examples -->
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-    <!-- Datatable init js -->
-    <script src="<?php echo base_url() ?>assets/js/pages/datatables.init.js"></script>
-    <!-- choices js -->
-    <script src="<?php echo base_url() ?>assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
-    <!-- color picker js -->
-    <script src="<?php echo base_url() ?>assets/libs/@simonwep/pickr/pickr.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
-    <!-- datepicker js -->
-    <script src="<?php echo base_url() ?>assets/libs/flatpickr/flatpickr.min.js"></script>
-    <!-- init js -->
-    <script src="<?php echo base_url() ?>assets/js/pages/form-advanced.init.js"></script>
-
+    
 </body>
 
 </html>

@@ -12,6 +12,41 @@ File: Main Js File
 
     'use strict';
 
+    var language = localStorage.getItem('minia-language');
+    // Default Language
+    var default_lang = 'en';
+
+    function setLanguage(lang) {
+        if (document.getElementById("header-lang-img")) {
+            if (lang == 'en') {
+                document.getElementById("header-lang-img").src = "assets/images/flags/us.jpg";
+            } else if (lang == 'sp') {
+                document.getElementById("header-lang-img").src = "assets/images/flags/spain.jpg";
+            } else if (lang == 'gr') {
+                document.getElementById("header-lang-img").src = "assets/images/flags/germany.jpg";
+            } else if (lang == 'it') {
+                document.getElementById("header-lang-img").src = "assets/images/flags/italy.jpg";
+            } else if (lang == 'ru') {
+                document.getElementById("header-lang-img").src = "assets/images/flags/russia.jpg";
+            }
+            localStorage.setItem('minia-language', lang);
+            language = localStorage.getItem('minia-language');
+            getLanguage();
+        }
+    }
+
+    // Multi language setting
+    function getLanguage() {
+        (language == null) ? setLanguage(default_lang): false;
+        $.getJSON('assets/lang/' + language + '.json', function (lang) {
+            $('html').attr('lang', language);
+            $.each(lang, function (index, val) {
+                (index === 'head') ? $(document).attr("title", val['title']): false;
+                $("[data-key='" + index + "']").text(val);
+            });
+        });
+    }
+
     function initMetisMenu() {
         //metis menu
         $("#side-menu").metisMenu();
@@ -216,8 +251,16 @@ File: Main Js File
         }
     }
 
+    function initLanguage() {
+        // Auto Loader
+        if (language && language != "null" && language !== default_lang)
+            setLanguage(language);
+        $('.language').on('click', function (e) {
+            setLanguage($(this).attr('data-lang'));
+        });
+    }
+
     function initCheckAll() {
-        
         $('#checkAll').on('change', function () {
             $('.table-check .form-check-input').prop('checked', $(this).prop("checked"));
         });
@@ -332,6 +375,7 @@ File: Main Js File
         initDropdownMenu();
         initComponents();
         initSettings();
+        initLanguage();
         initPreloader();
         layoutSetting();
         Waves.init();
