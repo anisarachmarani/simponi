@@ -51,7 +51,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="row justify-content-between align-items-center">
-                                        <h4 class="card-title col-6">Data Referensi</h4>
+                                        <h4 class="card-title col-6">Daftar Referensi</h4>
                                         <div class="col-6 text-end">
                                             <a href="<?php echo site_url("index.php/admin/Reff/create") ?>" class="btn btn-primary">Tambah <span class="d-none d-md-inline">Referensi</span></a>
                                         </div>

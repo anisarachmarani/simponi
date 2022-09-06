@@ -64,7 +64,7 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="row justify-content-between align-items-center">
-                                        <h4 class="card-title col-6">Data Billing</h4>
+                                        <h4 class="card-title col-6">Daftar Billing</h4>
                                         <div class="col-6 text-end">
                                             <!-- <a href="" class="btn btn-primary">Tambah <span class="d-none d-md-inline">Billing</span></a> -->
                                         </div>
@@ -109,15 +109,15 @@
                                                                 <label for="status_label" class="col-sm-3 col-form-label">Status</label>
                                                                 <div class="col-sm-9">
                                                                 <select class="form-control" data-trigger name="status" id="choices-single-default" placeholder="Test">
-                                                                    <option value="">Semua Status</option>
-                                                                    <option <?php ($this->session->userdata('status') == 'Baru') ? 'selected' : '' ?> value="Baru">Baru</option>
-                                                                    <option <?php ($this->session->userdata('status') == 'Terkirim') ? 'selected' : '' ?> value="Terkirim">Terkirim</option>
-                                                                    <option <?php ($this->session->userdata('status') == 'Kirim Ulang') ? 'selected' : '' ?> value="Kirim Ulang">Kirim Ulang</option>
-                                                                    <option <?php ($this->session->userdata('status') == 'Tidak Terkirim') ? 'selected' : '' ?> value="Tidak Terkirim">Tidak Terkirim</option>
-                                                                    <option <?php ($this->session->userdata('status') == 'Belum Terbayar') ? 'selected' : '' ?> value="Belum Terbayar">Belum Terbayar</option>
-                                                                    <option <?php ($this->session->userdata('status') == 'Terbayarar') ? 'selected' : '' ?> value="Terbayar">Terbayar</option>
-                                                                    <option <?php ($this->session->userdata('status') == 'Selesai') ? 'selected' : '' ?> value="Selesai">Selesai</option>
-                                                                    <option <?php ($this->session->userdata('status') == 'Tidak Berlaku') ? 'selected' : '' ?> value="Tidak Berlaku">Tidak Berlaku</option>
+                                                                    <option value="">-- Semua Status --</option>
+                                                                    <option <?php echo ($this->session->userdata('status') == 'Baru') ? 'selected' : '' ?> value="Baru">Baru</option>
+                                                                    <option <?php echo ($this->session->userdata('status') == 'Terkirim') ? 'selected' : '' ?> value="Terkirim">Terkirim</option>
+                                                                    <option <?php echo ($this->session->userdata('status') == 'Kirim Ulang') ? 'selected' : '' ?> value="Kirim Ulang">Kirim Ulang</option>
+                                                                    <option <?php echo ($this->session->userdata('status') == 'Tidak Terkirim') ? 'selected' : '' ?> value="Tidak Terkirim">Tidak Terkirim</option>
+                                                                    <option <?php echo ($this->session->userdata('status') == 'Belum Terbayar') ? 'selected' : '' ?> value="Belum Terbayar">Belum Terbayar</option>
+                                                                    <option <?php echo ($this->session->userdata('status') == 'Terbayarar') ? 'selected' : '' ?> value="Terbayar">Terbayar</option>
+                                                                    <option <?php echo ($this->session->userdata('status') == 'Selesai') ? 'selected' : '' ?> value="Selesai">Selesai</option>
+                                                                    <option <?php echo ($this->session->userdata('status') == 'Tidak Berlaku') ? 'selected' : '' ?> value="Tidak Berlaku">Tidak Berlaku</option>
                                                                 </select>
                                                                 </div>
                                                             </div>

@@ -33,8 +33,13 @@ class Bank_model extends CI_Model
 
     public function save()
     {
+        $data = $this->db->get($this->_table)->result();
+        $insertid = '';
+        foreach ($data as $value) {
+            $insertid = $value->id + 1;
+        }
         $post = $this->input->post();
-        $this->id = $this->db->insert_id();
+        $this->id = $insertid;
         $this->name = $post["name"];
         $this->code = $post["code"];
         return $this->db->insert($this->_table, $this);
