@@ -140,6 +140,7 @@
                                                 <th>Status</th>
                                                 <th>Error</th>
                                                 <th>Error Pembayaran</th>
+                                                <th>ID Simponi</th>
                                                 <th>NPWP</th>
                                                 <th>Tanggal Expired</th>
                                                 <th>Tanggal Respon</th>
@@ -157,6 +158,7 @@
                                                 <td><span class="text-wrap"><?php echo $item->name ?></span></td>
                                                 <td><span class="text-wrap"><?php echo ($item->error !== null) ? $item->error : '-' ?></span></td>
                                                 <td><span class="text-wrap"><?php echo ($item->error_pay !== null) ? $item->error_pay : '-' ?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->simponi_id ?></span></td>
                                                 <td><span class="text-wrap"><?php echo $item->npwp ?></span></td>
                                                 <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_expired)) ?></span></td>
                                                 <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_response)) ?></span></td>

@@ -34,7 +34,15 @@ class Department_model extends CI_Model
     {
         return $this->db->get($this->_table)->result();
     }
-    
+
+    public function getFive()
+    {
+      $this->db->order_by("id", "desc");
+      $this->db->limit(5);
+      $this->db->from($this->_table);
+      return $this->db->get()->result();
+    }
+
     public function getById($id)
     {
         return $this->db->get_where($this->_table, ["id" => $id])->row();

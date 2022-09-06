@@ -20,31 +20,39 @@ class Billing_model extends CI_Model
     public function getAll()
     {
         
-        $detail = $this->input->post('detail'); // $_POST['detail']
-        $billing_id = $this->input->post('billing_id'); // $_POST['billing_id']
-        $date_register = $this->input->post('date_register'); // $_POST['date_register']
-        $date_simponi = $this->input->post('date_simponi'); // $_POST['date_simponi']
-        $status = $this->input->post('status'); // $_POST['status']
-      
-        $this->session->set_userdata('detail',$detail);
-        $this->session->set_userdata('billing_id',$billing_id);
-        $this->session->set_userdata('date_register',$date_register);
-        $this->session->set_userdata('date_simponi',$date_simponi);
-        $this->session->set_userdata('status',$status);
+      $detail = $this->input->post('detail'); // $_POST['detail']
+      $billing_id = $this->input->post('billing_id'); // $_POST['billing_id']
+      $date_register = $this->input->post('date_register'); // $_POST['date_register']
+      $date_simponi = $this->input->post('date_simponi'); // $_POST['date_simponi']
+      $status = $this->input->post('status'); // $_POST['status']
+    
+      $this->session->set_userdata('detail',$detail);
+      $this->session->set_userdata('billing_id',$billing_id);
+      $this->session->set_userdata('date_register',$date_register);
+      $this->session->set_userdata('date_simponi',$date_simponi);
+      $this->session->set_userdata('status',$status);
 
-        $this->db->select('
-          t_billing.*, m_reff.id AS status, m_reff.name, 
-        ');
-        $this->db->where("date_register != '' ");
-        $this->db->where("detail like '%$detail%' ");
-        $this->db->where("billing_id like '%$billing_id%' ");
-        $this->db->where("date_register like '%$date_register%' ");
-        $this->db->where("date_simponi like '%$date_simponi%' ");
-        $this->db->where("name like '%$status%' ");
-        $this->db->join('m_reff', 't_billing.status = m_reff.id'); // join table m_reff
-        $this->db->from('t_billing');
-        $query = $this->db->get();
-        return $query->result();
+      $this->db->select('
+        t_billing.*, m_reff.id AS status, m_reff.name, 
+      ');
+      $this->db->where("date_register != '' ");
+      $this->db->where("detail like '%$detail%' ");
+      $this->db->where("billing_id like '%$billing_id%' ");
+      $this->db->where("date_register like '%$date_register%' ");
+      $this->db->where("date_simponi like '%$date_simponi%' ");
+      $this->db->where("name like '%$status%' ");
+      $this->db->join('m_reff', 't_billing.status = m_reff.id'); // join table m_reff
+      $this->db->from($this->_table);
+      $query = $this->db->get();
+      return $query->result();
+    }
+
+    public function getFive()
+    {
+      $this->db->order_by("date_register", "desc");
+      $this->db->limit(5);
+      $this->db->from($this->_table);
+      return $this->db->get()->result();
     }
     
     // public function getById($id)

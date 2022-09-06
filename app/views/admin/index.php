@@ -29,7 +29,7 @@
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center
                                 justify-content-between">
-                                <h4 class="mb-sm-0 font-size-18">Dashboard</h4>
+                                <h4 class="mb-sm-0 font-size-18">Selamat Datang, <?php echo $this->session->userdata('nama') ?> !</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
@@ -42,46 +42,94 @@
                     </div>
                     <!-- end page title -->
 
-                    <div class="row d-none">
-                        <div class="col-12">
+                    <div class="row">
+                        <div class="col-12 col-md-4">
                             <div class="card">
-                                <div class="card-header">
-                                    <div class="row justify-content-between align-items-center">
-                                        <h4 class="card-title col-6">Daftar Referensi</h4>
-                                        <div class="col-6 text-end">
-                                            <a href="<?php echo site_url("index.php/admin/Reff/create") ?>" class="btn btn-primary">Tambah <span class="d-none d-md-inline">Referensi</span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-
-                                    <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-wrap">ID</th>
-                                                <th class="text-wrap">Tipe Referensi</th>
-                                                <th class="text-wrap">Nama Referensi</th>
-                                                <th class="text-wrap">Kode Referensi</th>
-                                                <th class="text-wrap">Aksi</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody>
-                                            <?php foreach ($reff as $item) : ?>
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Daftar Billing</h4>
+                                    <div class="table-responsive">
+                                        <table class="table mb-0">
+                                            <thead>
                                                 <tr>
-                                                    <td class="text-wrap"><?php echo $item->id ?></td>
-                                                    <td class="text-wrap"><?php echo $item->type ?></td>
-                                                    <td class="text-wrap"><?php echo $item->name ?></td>
-                                                    <td class="text-wrap"><?php echo ($item->code) ? $item->code : '-' ?></td>
-                                                    <td class="text-wrap">
-                                                        <a href="<?php echo site_url('index.php/admin/Reff/edit/'.$item->id) ?>" class="btn btn-info">Ubah</a>
-                                                        <a href="<?php echo site_url('index.php/admin/Reff/delete/'.$item->id) ?>" class="btn btn-danger">Hapus</a>
-                                                    </td>
+                                                    <th>Nomor</th>
+                                                    <th>Jumlah</th>
+                                                    <th>Tanggal</th>
                                                 </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($billing as $key => $item) : ?>
+                                                    <tr>
+                                                        <td><?php echo $item->billing_id ?></td>
+                                                        <td><?php echo number_format($item->total);?></td>
+                                                        <td><?php echo date('d/m/y', strtotime($item->date_register)) ?></td>
+                                                    </tr>
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a href="<?php echo base_url(); ?>index.php/admin/Billing" class="btn btn-primary waves-effect waves-light w-50 mt-3">Selengkapnya</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
 
+                        <div class="col-12 col-md-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Daftar Bank</h4>
+                                    <div class="table-responsive">
+                                        <table class="table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <!-- <th>#</th> -->
+                                                    <th>Kode</th>
+                                                    <th>Nama</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($bank as $key => $item) : ?>
+                                                    <tr>
+                                                        <!-- <th scope="row"><?php echo $key+1 ?></th> -->
+                                                        <td><?php echo $item->code ?></td>
+                                                        <td class="text-start"><?php echo $item->name ?></td>
+                                                    </tr>
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a href="<?php echo base_url(); ?>index.php/admin/Bank" class="btn btn-primary waves-effect waves-light w-50 mt-3">Selengkapnya</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                        <div class="col-12 col-md-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Daftar Departemen</h4>
+                                    <div class="table-responsive">
+                                        <table class="table mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <!-- <th>#</th> -->
+                                                    <th>Kode</th>
+                                                    <th>Nama</th>
+                                                    <th>User ID</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($department as $key => $item) : ?>
+                                                    <tr>
+                                                        <!-- <th scope="row"><?php echo $key+1 ?></th> -->
+                                                        <td><?php echo $item->code_unit ?></td>
+                                                        <td class="text-start"><?php echo $item->name ?></td>
+                                                        <td><?php echo $item->user_id ?></td>
+                                                    </tr>
+                                                <?php endforeach ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <a href="<?php echo base_url(); ?>index.php/admin/Department" class="btn btn-primary waves-effect waves-light w-50 mt-3">Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
