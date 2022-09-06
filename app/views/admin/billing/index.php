@@ -127,7 +127,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="row mb-4">
-                                                                <label for="datepicker-basic" class="col-sm-3 col-form-label">Tanggal Bayar</label>
+                                                                <label for="datepicker-basic" class="col-sm-3 col-form-label">Tanggal Simponi</label>
                                                                 <div class="col-sm-9">
                                                                     <input type="date" class="form-control" id="datepicker-basic" name="date_simponi" value="<?php echo $this->session->userdata('date_simponi') ?>">
                                                                 </div>
@@ -144,33 +144,65 @@
                                         </div>
                                     </div>
 
+                                    <script src="<?php echo base_url() ?>assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Buttons examples -->
+    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/jszip/jszip.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <!-- Responsive examples -->
+    <script src="<?php echo base_url() ?>assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <!-- Datatable init js -->
+    <script src="<?php echo base_url() ?>assets/js/pages/datatables.init.js"></script>
+    <!-- choices js -->
+    <script src="<?php echo base_url() ?>assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+    <!-- color picker js -->
+    <script src="<?php echo base_url() ?>assets/libs/@simonwep/pickr/pickr.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
+    <!-- datepicker js -->
+    <script src="<?php echo base_url() ?>assets/libs/flatpickr/flatpickr.min.js"></script>
+    <!-- init js -->
+    <script src="<?php echo base_url() ?>assets/js/pages/form-advanced.init.js"></script>
+
+
                                     <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
                                         <thead>
                                             <tr>
-                                                <th class="text-wrap">No</th>
-                                                <th class="text-wrap">Nama</th>
-                                                <th class="text-wrap">ID Billing</th>
-                                                <th class="text-wrap">Tanggal Billing</th>
-                                                <th class="text-wrap">Tanggal Bayar</th>
-                                                <th class="text-wrap">Jumlah</th>
-                                                <th class="text-wrap">Status</th>
-                                                <th class="text-wrap">Error</th>
-                                                <th class="text-wrap">Error Pembayaran</th>
-                                                <!-- <th class="text-wrap">Aksi</th> -->
+                                                <th class="">No</th>
+                                                <th class="">Nama</th>
+                                                <th class="">ID Billing</th>
+                                                <th class="">Tanggal Billing</th>
+                                                <th class="">Tanggal Simponi</th>
+                                                <th class="">Jumlah</th>
+                                                <th class="">Status</th>
+                                                <th class="">Error</th>
+                                                <th class="">Error Pembayaran</th>
+                                                <th class="">NPWP</th>
+                                                <th class="">Tanggal Expired</th>
+                                                <th class="">Tanggal Respon</th>
+                                                <!-- <th class="">Aksi</th> -->
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php foreach ($billing as $key => $item) : ?>
                                             <tr>
-                                                <td><span class="text-wrap"><?php echo $key+1 ?></span></td>
-                                                <td><span class="text-wrap"><?php echo $item->detail ?></span></td>
-                                                <td><span class="text-wrap"><?php echo $item->billing_id ?></span></td>
-                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_register)) ?></span></td>
-                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_simponi)) ?></span></td>
-                                                <td class="text-end"><span class="text-wrap"><?php echo number_format($item->total);?></span></td>
-                                                <td><span class="text-wrap"><?php echo $item->name ?></span></td>
-                                                <td><span class="text-wrap"><?php echo ($item->error !== null) ? $item->error : '-' ?></span></td>
-                                                <td><span class="text-wrap"><?php echo ($item->error_pay !== null) ? $item->error_pay : '-' ?></span></td>
+                                                <td><?php echo $key+1 ?></td>
+                                                <td><?php echo $item->detail ?></td>
+                                                <td><?php echo $item->billing_id ?></td>
+                                                <td><?php echo date('d M Y', strtotime($item->date_register)) ?></td>
+                                                <td><?php echo date('d M Y', strtotime($item->date_simponi)) ?></td>
+                                                <td class="text-end"><?php echo number_format($item->total);?></td>
+                                                <td><?php echo ($item->error !== null) ? $item->error : '-' ?></td>
+                                                <td><?php echo ($item->error_pay !== null) ? $item->error_pay : '-' ?></td>
+                                                <td><?php echo $item->npwp ?></td>
+                                                <td><?php echo date('d M Y', strtotime($item->date_expired)) ?></td>
+                                                <td><?php echo date('d M Y', strtotime($item->date_response)) ?></td>
                                                 <!-- <td class="text-wrap">
                                                         <a href="" class="btn btn-info">Ubah</a>
                                                         <a href="" class="btn btn-danger">Hapus</a>
@@ -202,31 +234,6 @@
 
     <?php $this->load->view("admin/partials/script.php") ?>
     <!-- Required datatable js -->
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Buttons examples -->
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/jszip/jszip.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-    <!-- Responsive examples -->
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-    <!-- Datatable init js -->
-    <script src="<?php echo base_url() ?>assets/js/pages/datatables.init.js"></script>
-    <!-- choices js -->
-    <script src="<?php echo base_url() ?>assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
-    <!-- color picker js -->
-    <script src="<?php echo base_url() ?>assets/libs/@simonwep/pickr/pickr.min.js"></script>
-    <script src="<?php echo base_url() ?>assets/libs/@simonwep/pickr/pickr.es5.min.js"></script>
-    <!-- datepicker js -->
-    <script src="<?php echo base_url() ?>assets/libs/flatpickr/flatpickr.min.js"></script>
-    <!-- init js -->
-    <script src="<?php echo base_url() ?>assets/js/pages/form-advanced.init.js"></script>
 
 </body>
 
