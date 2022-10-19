@@ -34,17 +34,20 @@ class Billing_model extends CI_Model
       $this->session->set_userdata('date_simponi',$date_simponi);
       $this->session->set_userdata('status',$status);
 
-      $this->db->select('
-        t_billing.*, m_reff.id AS status, m_reff.name, 
-      ');
+      $this->db->select("
+        $this->_tbilling.*, 
+        $this->_treff.id AS status, $this->_treff.name AS status_name, 
+        $this->_tdepartment.id AS department_id, $this->_tdepartment.name AS department_name, 
+      ");
       $this->db->where("date_register != '' ");
       $this->db->where("detail like '%$detail%' ");
       $this->db->where("billing_id like '%$billing_id%' ");
       $this->db->where("date_register like '%$date_register%' ");
       $this->db->where("date_simponi like '%$date_simponi%' ");
-      $this->db->where("name like '%$status%' ");
-      $this->db->join('m_reff', 't_billing.status = m_reff.id'); // join table m_reff
-      $this->db->from($this->_tbilling);
+      $this->db->where("$this->_treff.name like '%$status%' ");
+      $this->db->from("$this->_tbilling");
+      $this->db->join("$this->_treff", "$this->_tbilling.status = $this->_treff.id"); // join table m_reff
+      $this->db->join("$this->_tdepartment","$this->_tbilling.department_id = $this->_tdepartment.id"); // join table m_reff
       $query = $this->db->get();
       return $query->result();
     }

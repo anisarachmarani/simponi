@@ -132,16 +132,14 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Nama</th>
-                                                <th>ID Billing</th>
                                                 <th>Tanggal Billing</th>
                                                 <th>Tanggal Simponi</th>
+                                                <th>Department</th>
+                                                <th>ID Billing</th>
                                                 <th>Jumlah</th>
                                                 <th>Status</th>
                                                 <th>Error</th>
                                                 <th>Error Pembayaran</th>
-                                                <th>ID Simponi</th>
-                                                <th>NPWP</th>
                                                 <th>Tanggal Expired</th>
                                                 <th>Tanggal Respon</th>
                                             </tr>
@@ -150,16 +148,14 @@
                                             <?php foreach ($billing as $key => $item) : ?>
                                             <tr>
                                                 <td><span class="text-wrap"><?php echo $key+1 ?></span></td>
-                                                <td><span class="text-wrap"><?php echo $item->detail ?></span></td>
+                                                <td><span class="text-wrap"><?php echo date('d M Y, H:i', strtotime($item->date_register)) ?></span></td>
+                                                <td><span class="text-wrap"><?php echo date('d M Y, H:i', strtotime($item->date_simponi)) ?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->department_name ?></span></td>
                                                 <td><span class="text-wrap"><?php echo $item->billing_id ?></span></td>
-                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_register)) ?></span></td>
-                                                <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_simponi)) ?></span></td>
                                                 <td class="text-end"><span class="text-wrap"><?php echo number_format($item->total);?></span></td>
-                                                <td><span class="text-wrap"><?php echo $item->name ?></span></td>
+                                                <td><span class="text-wrap"><?php echo $item->status_name ?></span></td>
                                                 <td><span class="text-wrap"><?php echo ($item->error !== null) ? $item->error : '-' ?></span></td>
                                                 <td><span class="text-wrap"><?php echo ($item->error_pay !== null) ? $item->error_pay : '-' ?></span></td>
-                                                <td><span class="text-wrap"><?php echo $item->simponi_id ?></span></td>
-                                                <td><span class="text-wrap"><?php echo $item->npwp ?></span></td>
                                                 <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_expired)) ?></span></td>
                                                 <td><span class="text-wrap"><?php echo date('d M Y', strtotime($item->date_response)) ?></span></td>
                                             </tr>

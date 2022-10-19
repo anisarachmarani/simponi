@@ -64,8 +64,8 @@
                                             <tbody>
                                                 <?php foreach ($billing as $key => $item) : ?>
                                                     <tr>
-                                                        <td><?php echo date('d-m-Y H:i', strtotime($item->date_register)) ?></td>
-                                                        <td><?php echo date('d-m-Y H:i', strtotime($item->date_simponi)) ?></td>
+                                                        <td><?php echo date('d M Y, H:i', strtotime($item->date_register)) ?></td>
+                                                        <td><?php echo date('d M Y, H:i', strtotime($item->date_simponi)) ?></td>
                                                         <td class="text-end"><?php echo number_format($item->total);?></td>
                                                         <td><?php echo $item->department_name;?></td>
                                                         <td><?php echo $item->billing_id ?></td>
