@@ -2,7 +2,9 @@
 
 class Billing_model extends CI_Model
 {
-    private $_table = "t_billing";
+    private $_tbilling = "t_billing";
+    private $_tdepartment = "m_department";
+    private $_treff = "m_reff";
     
     public $id;
     public $application_id;
@@ -42,22 +44,30 @@ class Billing_model extends CI_Model
       $this->db->where("date_simponi like '%$date_simponi%' ");
       $this->db->where("name like '%$status%' ");
       $this->db->join('m_reff', 't_billing.status = m_reff.id'); // join table m_reff
-      $this->db->from($this->_table);
+      $this->db->from($this->_tbilling);
       $query = $this->db->get();
       return $query->result();
     }
 
     public function getFive()
     {
+      $this->db->select("
+        $this->_tbilling.*, 
+        $this->_tdepartment.id AS department_id, $this->_tdepartment.name AS department_name, 
+        $this->_treff.id AS status, $this->_treff.name AS status_name"
+      );
       $this->db->order_by("date_register", "desc");
       $this->db->limit(5);
-      $this->db->from($this->_table);
-      return $this->db->get()->result();
+      $this->db->from("$this->_tbilling");
+      $this->db->join("$this->_tdepartment","$this->_tbilling.department_id = $this->_tdepartment.id"); 
+      $this->db->join("$this->_treff","$this->_tbilling.status = $this->_treff.id"); 
+      $query = $this->db->get();
+      return $query->result();
     }
     
     // public function getById($id)
     // {
-    //     return $this->db->get_where($this->_table, ["product_id" => $id])->row();
+    //     return $this->db->get_where($this->_tbilling, ["product_id" => $id])->row();
     // }
 
     // public function save()
@@ -67,7 +77,7 @@ class Billing_model extends CI_Model
     //     $this->name = $post["name"];
     //     $this->price = $post["price"];
     //     $this->description = $post["description"];
-    //     return $this->db->insert($this->_table, $this);
+    //     return $this->db->insert($this->_tbilling, $this);
     // }
 
     // public function update()
@@ -77,11 +87,11 @@ class Billing_model extends CI_Model
     //     $this->name = $post["name"];
     //     $this->price = $post["price"];
     //     $this->description = $post["description"];
-    //     return $this->db->update($this->_table, $this, array('product_id' => $post['id']));
+    //     return $this->db->update($this->_tbilling, $this, array('product_id' => $post['id']));
     // }
 
     // public function delete($id)
     // {
-    //     return $this->db->delete($this->_table, array("product_id" => $id));
+    //     return $this->db->delete($this->_tbilling, array("product_id" => $id));
     // }
 }

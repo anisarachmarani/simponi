@@ -43,25 +43,35 @@
                     <!-- end page title -->
 
                     <div class="row">
-                        <div class="col-12 col-md-4">
+                        <div class="col-12">
                             <div class="card">
-                                <div class="card-body text-center">
+                                <div class="card-body">
                                     <h4 class="card-title">Daftar Billing</h4>
                                     <div class="table-responsive">
                                         <table class="table mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th>Nomor</th>
-                                                    <th>Jumlah</th>
                                                     <th>Tanggal</th>
+                                                    <th>Tanggal Simponi</th>
+                                                    <th>Jumlah</th>
+                                                    <th>Departement</th>
+                                                    <th>Nomor Billing</th>
+                                                    <th>Status</th>
+                                                    <th>Error</th>
+                                                    <th>Error Pembayaran</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($billing as $key => $item) : ?>
                                                     <tr>
+                                                        <td><?php echo date('d-m-Y H:i', strtotime($item->date_register)) ?></td>
+                                                        <td><?php echo date('d-m-Y H:i', strtotime($item->date_simponi)) ?></td>
+                                                        <td class="text-end"><?php echo number_format($item->total);?></td>
+                                                        <td><?php echo $item->department_name;?></td>
                                                         <td><?php echo $item->billing_id ?></td>
-                                                        <td><?php echo number_format($item->total);?></td>
-                                                        <td><?php echo date('d/m/y', strtotime($item->date_register)) ?></td>
+                                                        <td><?php echo $item->status_name ?></td>
+                                                        <td><?php echo $item->error ?></td>
+                                                        <td><?php echo $item->error_pay ?></td>
                                                     </tr>
                                                 <?php endforeach ?>
                                             </tbody>
