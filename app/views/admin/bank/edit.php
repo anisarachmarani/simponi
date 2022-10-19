@@ -33,7 +33,7 @@
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('admin/Dashboard') ?>">Dashboard</a></li>
                                         <li class="breadcrumb-item"><a href="<?php echo site_url('admin/Bank') ?>">Bank</a></li>
                                         <li class="breadcrumb-item active">Ubah Bank</li>
                                     </ol>
