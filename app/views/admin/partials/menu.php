@@ -8,7 +8,7 @@
         <!-- Left Menu Start -->
         <ul class="metismenu list-unstyled" id="side-menu">
             <li>
-                <a href="<?php echo base_url(); ?>index.php/admin/Dashboard">
+                <a href="<?php echo base_url(); ?>admin/Dashboard">
                     <i class="mdi mdi-home-account"></i>
                     <span data-key="t-dashboard">Dashboard</span>
                 </a>
@@ -16,7 +16,7 @@
 
             <li class="menu-title" data-key="t-menu">Menu</li>
             <li>
-                <a href="<?php echo base_url(); ?>index.php/admin/Billing">
+                <a href="<?php echo base_url(); ?>admin/Billing">
                     <i class="mdi mdi-view-list"></i>
                     <span data-key="t-billing">Billing</span>
                 </a>
@@ -29,7 +29,7 @@
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                     <li>
-                        <a href="<?php echo base_url(); ?>index.php/admin/Bank">
+                        <a href="<?php echo base_url(); ?>admin/Bank">
                             <span data-key="t-daftar-bank">Daftar Bank</span>
                         </a>
                     </li>
@@ -49,7 +49,7 @@
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                     <li>
-                        <a href="<?php echo base_url(); ?>index.php/admin/Department">
+                        <a href="<?php echo base_url(); ?>admin/Department">
                             <span data-key="t-daftar-depertemen">Daftar Departemen</span>
                         </a>
                     </li>
@@ -69,7 +69,7 @@
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                     <li>
-                        <a href="<?php echo base_url(); ?>index.php/admin/Reff">
+                        <a href="<?php echo base_url(); ?>admin/Reff">
                             <span data-key="t-daftar-depertemen">Daftar Referensi</span>
                         </a>
                     </li>

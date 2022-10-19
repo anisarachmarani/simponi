@@ -33,7 +33,7 @@
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="<?php echo site_url('index.php/admin') ?>">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Dashboard</a></li>
                                         <li class="breadcrumb-item active">Billing</li>
                                     </ol>
                                 </div>
@@ -59,7 +59,7 @@
                                         <div class="col-12">
                                             <div>
                                                 <h5 class="font-size-14 mb-4">Form groups</h5>
-                                                <form action="<?php echo site_url('index.php/admin/Billing/index') ?>" method="post">
+                                                <form action="<?php echo site_url('admin/Billing/index') ?>" method="post">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="row mb-4">

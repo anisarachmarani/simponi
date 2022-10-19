@@ -33,7 +33,7 @@
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="<?php echo site_url('index.php/admin') ?>">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Dashboard</a></li>
                                         <li class="breadcrumb-item active">Departemen</li>
                                     </ol>
                                 </div>
@@ -77,8 +77,8 @@
                                                     <td><?php echo $item->pnbp ?></td>
                                                     <td><?php echo $item->user_id ?></td>
                                                     <td>
-                                                        <a href="<?php echo site_url('index.php/admin/Department/edit/'.$item->id) ?>" class="btn btn-info">Ubah</a>
-                                                        <a href="<?php echo site_url('index.php/admin/Department/delete/'.$item->id) ?>" class="btn btn-danger">Hapus</a>
+                                                        <a href="<?php echo site_url('admin/Department/edit/'.$item->id) ?>" class="btn btn-info">Ubah</a>
+                                                        <a href="<?php echo site_url('admin/Department/delete/'.$item->id) ?>" class="btn btn-danger">Hapus</a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

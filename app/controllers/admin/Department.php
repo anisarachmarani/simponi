@@ -32,9 +32,9 @@ class Department extends CI_Controller {
             $department->save();
             // var_dump($department);
             // die();
-            redirect(site_url('index.php/admin/Department'));
+            redirect(site_url('admin/Department'));
         } else {
-            redirect(site_url('index.php/admin/Department/create'));
+            redirect(site_url('admin/Department/create'));
         }
     }
 
@@ -56,7 +56,7 @@ class Department extends CI_Controller {
             $department->update();
         }
         
-        redirect(site_url('index.php/admin/Department'));
+        redirect(site_url('admin/Department'));
     }
 
     public function delete($id=null)
@@ -64,7 +64,7 @@ class Department extends CI_Controller {
         if (!isset($id)) show_404();
             
         if ($this->department_model->delete($id)) {
-            redirect(site_url('index.php/admin/Department'));
+            redirect(site_url('admin/Department'));
         }
     }
 }

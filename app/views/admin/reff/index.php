@@ -33,7 +33,7 @@
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="<?php echo site_url('index.php/admin') ?>">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('admin') ?>">Dashboard</a></li>
                                         <li class="breadcrumb-item active">Referensi</li>
                                     </ol>
                                 </div>
@@ -75,8 +75,8 @@
                                                     <td class="text-wrap"><?php echo $item->name ?></td>
                                                     <td class="text-wrap"><?php echo ($item->code) ? $item->code : '-' ?></td>
                                                     <td class="text-wrap">
-                                                        <a href="<?php echo site_url('index.php/admin/Reff/edit/'.$item->id) ?>" class="btn btn-info">Ubah</a>
-                                                        <a href="<?php echo site_url('index.php/admin/Reff/delete/'.$item->id) ?>" class="btn btn-danger">Hapus</a>
+                                                        <a href="<?php echo site_url('admin/Reff/edit/'.$item->id) ?>" class="btn btn-info">Ubah</a>
+                                                        <a href="<?php echo site_url('admin/Reff/delete/'.$item->id) ?>" class="btn btn-danger">Hapus</a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

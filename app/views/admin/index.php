@@ -46,7 +46,10 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Daftar Billing</h4>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <h4 class="card-title">Daftar Billing</h4>
+                                        <a href="<?php echo base_url(); ?>admin/Billing" class="btn btn-primary waves-effect waves-light">Selengkapnya</a>
+                                    </div>
                                     <div class="table-responsive">
                                         <table class="table mb-0">
                                             <thead>
@@ -77,13 +80,12 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <a href="<?php echo base_url(); ?>index.php/admin/Billing" class="btn btn-primary waves-effect waves-light w-50 mt-3">Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
                         <!-- end col -->
 
-                        <div class="col-12 col-md-4">
+                        <div class="col-12 col-md-6">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <h4 class="card-title">Daftar Bank</h4>
@@ -107,13 +109,13 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <a href="<?php echo base_url(); ?>index.php/admin/Bank" class="btn btn-primary waves-effect waves-light w-50 mt-3">Selengkapnya</a>
+                                    <a href="<?php echo base_url(); ?>admin/Bank" class="btn btn-primary waves-effect waves-light w-50 mt-3">Selengkapnya</a>
                                 </div>
                             </div>
                         </div>
                         <!-- end col -->
 
-                        <div class="col-12 col-md-4">
+                        <div class="col-12 col-md-6">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <h4 class="card-title">Daftar Departemen</h4>
@@ -139,7 +141,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <a href="<?php echo base_url(); ?>index.php/admin/Department" class="btn btn-primary waves-effect waves-light w-50 mt-3">Selengkapnya</a>
+                                    <a href="<?php echo base_url(); ?>admin/Department" class="btn btn-primary waves-effect waves-light w-50 mt-3">Selengkapnya</a>
                                 </div>
                             </div>
                         </div>

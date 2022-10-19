@@ -32,9 +32,9 @@ class Reff extends CI_Controller {
             $reff->save();
             // var_dump($reff);
             // die();
-            redirect(site_url('index.php/admin/Reff'));
+            redirect(site_url('admin/Reff'));
         } else {
-            redirect(site_url('index.php/admin/Reff/create'));
+            redirect(site_url('admin/Reff/create'));
         }
     }
 
@@ -56,7 +56,7 @@ class Reff extends CI_Controller {
             $reff->update();
         }
         
-        redirect(site_url('index.php/admin/Reff'));
+        redirect(site_url('admin/Reff'));
     }
 
     public function delete($id=null)
@@ -64,7 +64,7 @@ class Reff extends CI_Controller {
         if (!isset($id)) show_404();
             
         if ($this->reff_model->delete($id)) {
-            redirect(site_url('index.php/admin/Reff'));
+            redirect(site_url('admin/Reff'));
         }
     }
 }

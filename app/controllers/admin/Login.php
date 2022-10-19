@@ -21,14 +21,14 @@ class Login extends CI_Controller {
 		// var_dump($name);
 		if($this->auth_model->login_user($name,$password))
 		{
-			redirect(site_url('index.php/admin/Dashboard'));
+			redirect(site_url('admin/Dashboard'));
 		}
 		else
 		{
 			// var_dump($this);
 			// die();
 			$this->session->set_flashdata('error','Username & Password salah');
-			redirect(site_url('index.php/admin/Login'));
+			redirect(site_url('admin/Login'));
 		}
 	}
 
@@ -37,7 +37,7 @@ class Login extends CI_Controller {
 		$this->session->sess_destroy('username');
 		$this->session->sess_destroy('nama');
 		$this->session->sess_destroy('is_login');
-		redirect(site_url('index.php/admin/Login'));
+		redirect(site_url('admin/Login'));
 	}
 
 	
