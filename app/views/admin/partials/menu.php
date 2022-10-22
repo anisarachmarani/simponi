@@ -21,6 +21,13 @@
                     <span data-key="t-billing">Billing</span>
                 </a>
             </li>
+            
+            <li>
+                <a href="<?php echo base_url(); ?>admin/Payment">
+                    <i class="mdi mdi-cash"></i>
+                    <span data-key="t-payment">Payment</span>
+                </a>
+            </li>
 
             <li>
                 <a href="javascript: void(0);" class="has-arrow" class="d-flex justify-content-between">
