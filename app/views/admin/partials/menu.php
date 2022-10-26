@@ -111,7 +111,7 @@
 
             <li>
                 <a href="javascript: void(0);" class="has-arrow" class="d-flex justify-content-between">
-                    <i class="mdi mdi-clipboard-list"></i>
+                    <i class="mdi mdi-application"></i>
                     <span data-key="t-application">Aplikasi</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
