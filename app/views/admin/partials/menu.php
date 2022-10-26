@@ -72,7 +72,7 @@
             <li>
                 <a href="javascript: void(0);" class="has-arrow" class="d-flex justify-content-between">
                     <i class="mdi mdi-office-building"></i>
-                    <span data-key="t-bank">Departemen</span>
+                    <span data-key="t-department">Departemen</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                     <li>
@@ -92,18 +92,38 @@
             <li>
                 <a href="javascript: void(0);" class="has-arrow" class="d-flex justify-content-between">
                     <i class="mdi mdi-clipboard-list"></i>
-                    <span data-key="t-bank">Referensi</span>
+                    <span data-key="t-reff">Referensi</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                     <li>
                         <a href="<?php echo base_url(); ?>admin/Reff">
-                            <span data-key="t-daftar-depertemen">Daftar Referensi</span>
+                            <span data-key="t-daftar-referensi">Daftar Referensi</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="<?php echo site_url("admin/Reff/create") ?>">
                             <span data-key="t-tambah-referensi">Tambah Referensi</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="javascript: void(0);" class="has-arrow" class="d-flex justify-content-between">
+                    <i class="mdi mdi-clipboard-list"></i>
+                    <span data-key="t-application">Aplikasi</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="false">
+                    <li>
+                        <a href="<?php echo base_url(); ?>admin/Application">
+                            <span data-key="t-daftar-aplikasi">Daftar Aplikasi</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo site_url("admin/Application/create") ?>">
+                            <span data-key="t-tambah-aplikasi">Tambah Aplikasi</span>
                         </a>
                     </li>
                 </ul>
