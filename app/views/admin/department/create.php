@@ -61,7 +61,7 @@
                                         <div class="col-12 px-0 px-md-5">
                                             <div class="mt-0">
                                                 <form
-                                                    action="<?php echo site_url("index.php/admin/Department/store") ?>"
+                                                    action="<?php echo site_url("admin/Department/store") ?>"
                                                     method="POST">
                                                     <div class="row">
                                                         <div class="col-lg-6">
@@ -160,7 +160,7 @@
                                                             <div>
                                                                 <button type="submit"
                                                                     class="btn btn-primary w-md">Simpan</button>
-                                                                <a href="<?php echo site_url("index.php/admin/Department") ?>"
+                                                                <a href="<?php echo site_url("admin/Department") ?>"
                                                                     class="btn btn-secondary w-md">Batal</a>
                                                             </div>
                                                         </div>

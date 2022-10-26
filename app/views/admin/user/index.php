@@ -29,12 +29,12 @@
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center
                                 justify-content-between">
-                                <h4 class="mb-sm-0 font-size-18">Payment</h4>
+                                <h4 class="mb-sm-0 font-size-18">User</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
                                         <li class="breadcrumb-item"><a href="<?php echo site_url('admin/Dashboard') ?>">Dashboard</a></li>
-                                        <li class="breadcrumb-item active">Payment</li>
+                                        <li class="breadcrumb-item active">User</li>
                                     </ol>
                                 </div>
 
@@ -48,7 +48,10 @@
                             <div class="card">
                                 <div class="card-header">
                                     <div class="row justify-content-between align-items-center">
-                                        <h4 class="card-title col-6">Daftar Payment</h4>
+                                        <h4 class="card-title col-6">Daftar User</h4>
+                                        <div class="col-6 text-end">
+                                            <a href="<?php echo site_url("admin/User/create") ?>" class="btn btn-primary">Tambah <span class="d-none d-md-inline">User</span></a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -57,56 +60,51 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-wrap">#</th>
+                                                <th class="text-wrap">Nama</th>
+                                                <th class="text-wrap">Email</th>
+                                                <th class="text-wrap">Username</th>
+                                                <th class="text-wrap">Role</th>
                                                 <th class="text-wrap">Aplikasi</th>
-                                                <th class="text-wrap">ID Transaksi</th>
                                                 <th class="text-wrap">Department</th>
-                                                <th class="text-wrap">User</th>
-                                                <th class="text-wrap">Detail</th>
-                                                <th class="text-wrap">Jumlah</th>
                                                 <th class="text-wrap">Status</th>
-                                                <th class="text-wrap">ID Simponi</th>
-                                                <th class="text-wrap">ID Billing</th>
-                                                <th class="text-wrap">NTPN</th>
-                                                <th class="text-wrap">NTB</th>
-                                                <th class="text-wrap">Bank</th>
-                                                <th class="text-wrap">Channel</th>
-                                                <th class="text-wrap">Error Pembayaran</th>
+                                                <th class="text-wrap">Aksi</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            <?php foreach ($payment as $key => $item) : ?>
+                                            <?php foreach ($user as $key => $item) : ?>
                                                 <?php 
-                                                    foreach ($reff as $value) {
-                                                        if ($value->id == $item->channel) {
-                                                            $channel = $value->name;
+                                                    foreach ($reff as $ref) {
+                                                        if ($ref->id == $item->role) {
+                                                            $role = $ref->name;
+                                                        }
+                                                        if ($ref->id == $item->status) {
+                                                            $status = $ref->name;
+                                                        }
+                                                    }
+                                                    foreach ($apps as $app) {
+                                                        if ($app->id == $item->application_id) {
+                                                            $application_id = $app->name;
+                                                        }
+                                                    }
+                                                    foreach ($departments as $depart) {
+                                                        if ($depart->id == $item->application_id) {
+                                                            $department_id = $depart->name;
                                                         }
                                                     }
                                                 ?>
                                                 <tr>
                                                     <td class="text-wrap"><?php echo $key+1 ?></td>
-                                                    <td class="text-wrap"><?php echo $item->application_name ?></td>
-                                                    <td class="text-wrap"><?php echo $item->transaction_id ?></td>
-                                                    <td class="text-wrap"><?php echo $item->department_name ?></td>
-                                                    <td class="text-wrap"><?php echo $item->user_name ?></td>
-                                                    <td class="text-wrap"><?php echo $item->detail ?></td>
-                                                    <td class="text-wrap text-end"><?php echo number_format($item->total) ?></td>
-                                                    <td class="text-wrap"><?php echo $item->status_name ?></td>
-                                                    <td class="text-wrap"><?php echo $item->simponi_id ?></td>
-                                                    <td class="text-wrap"><?php echo $item->billing_id ?></td>
-                                                    <td class="text-wrap"><?php echo $item->ntpn ?></td>
-                                                    <td class="text-wrap"><?php echo $item->ntb ?></td>
-                                                    <td class="text-wrap"><?php echo $item->bank_name ?></td>
-                                                    <td class="text-wrap"><?php echo $channel ?></td>
+                                                    <td class="text-wrap"><?php echo $item->name ?></td>
+                                                    <td class="text-wrap"><?php echo $item->email ?></td>
+                                                    <td class="text-wrap"><?php echo $item->login ?></td>
+                                                    <td class="text-wrap"><?php echo $role ?></td>
+                                                    <td class="text-wrap"><?php echo $application_id ?></td>
+                                                    <td class="text-wrap"><?php echo $department_id ?></td>
+                                                    <td class="text-wrap"><?php echo $status ?></td>
                                                     <td class="text-wrap">
-                                                        <?php 
-                                                            if ($item->error_pay == NULL) {
-                                                                echo "-";
-                                                            } else {
-                                                                echo $item->error_pay;
-                                                            }
-                                                            
-                                                        ?>
+                                                        <a href="<?php echo site_url('admin/User/edit/'.$item->id) ?>" class="btn btn-info">Ubah</a>
+                                                        <a href="<?php echo site_url('admin/User/delete/'.$item->id) ?>" class="btn btn-danger">Hapus</a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>

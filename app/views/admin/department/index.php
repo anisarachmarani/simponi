@@ -50,7 +50,7 @@
                                     <div class="row justify-content-between align-items-center">
                                         <h4 class="card-title col-6">Daftar Departemen</h4>
                                         <div class="col-6 text-end">
-                                            <a href="<?php echo site_url("index.php/admin/Department/create") ?>" class="btn btn-primary">Tambah <span class="d-none d-md-inline">Departemen</span></a>
+                                            <a href="<?php echo site_url("admin/Department/create") ?>" class="btn btn-primary">Tambah <span class="d-none d-md-inline">Departemen</span></a>
                                         </div>
                                     </div>
                                 </div>

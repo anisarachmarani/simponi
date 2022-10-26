@@ -7,15 +7,15 @@ class Auth_model extends CI_Model
         parent::__construct();
 	}
 
-	function register($name,$password,$nama)
-	{
-		$data_user = array(
-			'name'=>$name,
-			'password'=>password_hash($password,PASSWORD_DEFAULT),
-			'nama'=>$nama
-		);
-		$this->db->insert('t_user',$data_user);
-	}
+	// function register($name,$password,$nama)
+	// {
+	// 	$data_user = array(
+	// 		'name'=>$name,
+	// 		'password'=>password_hash($password,PASSWORD_DEFAULT),
+	// 		'nama'=>$nama
+	// 	);
+	// 	$this->db->insert('t_user',$data_user);
+	// }
 
 	function login_user($name,$password)
 	{
@@ -25,7 +25,7 @@ class Auth_model extends CI_Model
             $data_user = $query->row();
 			// var_dump($data_user->name);
 			// die();
-            if ($password == $data_user->password) {
+            if (password_verify($password, $data_user->password)) {
                 $this->session->set_userdata('name',$name);
 				$this->session->set_userdata('nama',$data_user->name);
 				$this->session->set_userdata('is_login',TRUE);

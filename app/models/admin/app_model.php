@@ -1,8 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Reff_model extends CI_Model
+class App_model extends CI_Model
 {
-    private $_table = "m_reff";
+    private $_table = "m_application";
 
     public $id;
     public $type;
@@ -25,11 +25,6 @@ class Reff_model extends CI_Model
     public function getAll()
     {
         return $this->db->get($this->_table)->result();
-    }
-
-    public function role()
-    {
-        return $this->db->get_where($this->_table, ["type" => "USER_ROLE"])->result();
     }
     
     public function getById($id)

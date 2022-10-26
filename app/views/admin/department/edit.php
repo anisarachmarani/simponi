@@ -61,7 +61,7 @@
                                         <div class="col-12 px-0 px-md-5">
                                             <div class="mt-0">
                                                 <form
-                                                    action="<?php echo site_url("index.php/admin/Department/update") ?>"
+                                                    action="<?php echo site_url("admin/Department/update") ?>"
                                                     method="POST">
                                                     <input type="hidden" name="id" value="<?php echo $department->id?>" />
                                                     <input type="hidden" name="user_id" value="<?php echo $department->user_id?>" />
@@ -162,7 +162,7 @@
                                                             <div>
                                                                 <button type="submit"
                                                                     class="btn btn-primary w-md">Simpan</button>
-                                                                <a href="<?php echo site_url("index.php/admin/Department") ?>"
+                                                                <a href="<?php echo site_url("admin/Department") ?>"
                                                                     class="btn btn-secondary w-md">Batal</a>
                                                             </div>
                                                         </div>

@@ -5,8 +5,6 @@ class Payment_model extends CI_Model
     private $_tpayment = "t_payment";
     private $_tdepartment = "m_department";
     private $_treff = "m_reff";
-    private $_tapplication = "m_application";
-    private $_tbank = "m_bank";
     
     public $id;
     public $application_id;
@@ -42,7 +40,6 @@ class Payment_model extends CI_Model
         m_department.id AS department_id, m_department.name AS department_name, 
         m_application.id AS application_id, m_application.name AS application_name, 
         m_bank.id AS bank_id, m_bank.name AS bank_name,  
-        m_reff.id AS channel, m_reff.name AS channel_name,
         t_user.id AS user_id, t_user.name AS user_name,
       ");
       $this->db->where("date_register != '' ");

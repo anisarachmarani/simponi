@@ -73,8 +73,8 @@
                                                         <td><?php echo $item->department_name;?></td>
                                                         <td><?php echo $item->billing_id ?></td>
                                                         <td><?php echo $item->status_name ?></td>
-                                                        <td><?php echo $item->error ?></td>
-                                                        <td><?php echo $item->error_pay ?></td>
+                                                        <td><?php echo ($item->error != NULL) ? "$item->error" : '-' ?></td>
+                                                        <td><?php echo ($item->error_pay != NULL) ? "$item->error_pay" : '-' ?></td>
                                                     </tr>
                                                 <?php endforeach ?>
                                             </tbody>

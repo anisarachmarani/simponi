@@ -31,6 +31,26 @@
 
             <li>
                 <a href="javascript: void(0);" class="has-arrow" class="d-flex justify-content-between">
+                    <i class="mdi mdi-account-multiple"></i>
+                    <span data-key="t-user">User</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="false">
+                    <li>
+                        <a href="<?php echo base_url(); ?>admin/User">
+                            <span data-key="t-daftar-user">Daftar User</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo site_url("admin/User/create") ?>">
+                            <span data-key="t-tambah-user">Tambah User</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a href="javascript: void(0);" class="has-arrow" class="d-flex justify-content-between">
                     <i class="mdi mdi-bank"></i>
                     <span data-key="t-bank">Bank</span>
                 </a>
@@ -42,7 +62,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url("index.php/admin/Bank/create") ?>">
+                        <a href="<?php echo site_url("admin/Bank/create") ?>">
                             <span data-key="t-tambah-bank">Tambah Bank</span>
                         </a>
                     </li>
@@ -62,7 +82,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url("index.php/admin/Department/create") ?>">
+                        <a href="<?php echo site_url("admin/Department/create") ?>">
                             <span data-key="t-tambah-departemen">Tambah Departemen</span>
                         </a>
                     </li>
@@ -82,7 +102,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url("index.php/admin/Reff/create") ?>">
+                        <a href="<?php echo site_url("admin/Reff/create") ?>">
                             <span data-key="t-tambah-referensi">Tambah Referensi</span>
                         </a>
                     </li>
