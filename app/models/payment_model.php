@@ -7,53 +7,40 @@ class Payment_model extends CI_Model
     private $_treff = "m_reff";
     
     public $id;
+    public $department_id;
+    public $billing_id;
     public $application_id;
     public $transaction_id;
-    public $date_register;
-    public $date_expired;
-    public $npwp;
-    public $total;
-    public $detail;
+    public $user_id;
     public $status;
-    public $simponi_id;
-    public $error;
-    public $error_pay;
 
-    public function getAll()
+    public function getAll($department_id, $billing_id, $application_id, $transaction_id, $user_id, $status)
     {
-        
-      // $detail = $this->input->post('detail'); // $_POST['detail']
-      // $billing_id = $this->input->post('billing_id'); // $_POST['billing_id']
-      // $date_register = $this->input->post('date_register'); // $_POST['date_register']
-      // $date_simponi = $this->input->post('date_simponi'); // $_POST['date_simponi']
-      // $status = $this->input->post('status'); // $_POST['status']
-    
-      // $this->session->set_userdata('detail',$detail);
-      // $this->session->set_userdata('billing_id',$billing_id);
-      // $this->session->set_userdata('date_register',$date_register);
-      // $this->session->set_userdata('date_simponi',$date_simponi);
-      // $this->session->set_userdata('status',$status);
-
-      $this->db->select("
-        t_payment.*, 
-        m_reff.id AS status, m_reff.name AS status_name, 
-        m_department.id AS department_id, m_department.name AS department_name, 
-        m_application.id AS application_id, m_application.name AS application_name, 
-        m_bank.id AS bank_id, m_bank.name AS bank_name,  
-        t_user.id AS user_id, t_user.name AS user_name,
-      ");
       $this->db->where("date_register != '' ");
-      // $this->db->where("detail like '%$detail%' ");
-      // $this->db->where("billing_id like '%$billing_id%' ");
-      // $this->db->where("date_register like '%$date_register%' ");
-      // $this->db->where("date_simponi like '%$date_simponi%' ");
-      // $this->db->where("$this->_treff.name like '%$status%' ");
-      $this->db->from("t_payment");
-      $this->db->join("m_reff", "t_payment.status = m_reff.id"); // join table m_reff
-      $this->db->join("m_department","t_payment.department_id = m_department.id"); // join table m_department
-      $this->db->join("m_application","t_payment.application_id = m_application.id"); // join table m_department
-      $this->db->join("m_bank","t_payment.bank_id = m_bank.id"); // join table m_department
-      $this->db->join("t_user","t_payment.user_id = t_user.id"); // join table m_department
+      $this->db->where("department_id like '%$department_id%' ");
+      $this->db->where("billing_id like '%$billing_id%' ");
+      $this->db->where("application_id like '%$application_id%' ");
+      $this->db->where("transaction_id like '%$transaction_id%' ");
+      $this->db->where("user_id like '%$user_id%' ");
+      $this->db->where("status like '%$status%' ");
+      $this->db->from("$this->_tpayment");
+      $this->db->order_by("date_register", "desc");
+      $query = $this->db->get();
+      return $query->result();
+    }
+
+    public function get_payment_client($billing_id, $application_id, $transaction_id, $user_id, $status)
+    {
+      $department_id = $this->session->userdata('department_id');
+      $this->db->where("date_register != '' ");
+      $this->db->where("department_id like '%$department_id%' ");
+      $this->db->where("billing_id like '%$billing_id%' ");
+      $this->db->where("application_id like '%$application_id%' ");
+      $this->db->where("transaction_id like '%$transaction_id%' ");
+      $this->db->where("user_id like '%$user_id%' ");
+      $this->db->where("status like '%$status%' ");
+      $this->db->from("$this->_tpayment");
+      $this->db->order_by("date_register", "desc");
       $query = $this->db->get();
       return $query->result();
     }

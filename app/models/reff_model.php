@@ -36,6 +36,11 @@ class Reff_model extends CI_Model
     {
         return $this->db->get_where($this->_table, ["type" => "STATUS_BILLING"])->result();
     }
+
+    public function channel()
+    {
+        return $this->db->get_where($this->_table, ["type" => "CHANNEL"])->result();
+    }
     
     public function getById($id)
     {

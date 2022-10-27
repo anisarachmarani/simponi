@@ -52,67 +52,88 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <div>
+                                                <form action="#" method="post">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="billing_id" class="col-sm-3 col-form-label">ID Billing</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" id="billing_id" name="billing_id" value="<?php echo $this->session->userdata('billing_id') ?>">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="status_label" class="col-sm-3 col-form-label">Status</label>
+                                                                <div class="col-sm-9">
+                                                                <select class="form-control" data-trigger id="status" name="status" placeholder="Test">
+                                                                    <option value="">-- Semua Status --</option>
+                                                                    <?php foreach ($status as $key => $value) : ?>
+                                                                        <option value="<?= $value->id ?>"><?= $value->name ?></option>
+                                                                    <?php endforeach ?>
+                                                                </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                    <table id="datatable" class="table table-bordered dt-responsive nowrap w-100">
-                                        <thead>
-                                            <tr>
-                                                <th class="text-wrap">#</th>
-                                                <th class="text-wrap">Aplikasi</th>
-                                                <th class="text-wrap">ID Transaksi</th>
-                                                <th class="text-wrap">Department</th>
-                                                <th class="text-wrap">User</th>
-                                                <th class="text-wrap">Detail</th>
-                                                <th class="text-wrap">Jumlah</th>
-                                                <th class="text-wrap">Status</th>
-                                                <th class="text-wrap">ID Simponi</th>
-                                                <th class="text-wrap">ID Billing</th>
-                                                <th class="text-wrap">NTPN</th>
-                                                <th class="text-wrap">NTB</th>
-                                                <th class="text-wrap">Bank</th>
-                                                <th class="text-wrap">Channel</th>
-                                                <th class="text-wrap">Error Pembayaran</th>
-                                            </tr>
-                                        </thead>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="application_id" class="col-sm-3 col-form-label">Aplikasi</label>
+                                                                <div class="col-sm-9">
+                                                                    <select class="form-control" data-trigger name="application_id" id="application_id">
+                                                                        <option value="">-- Semua aplikasi --</option>
+                                                                        <?php foreach ($apps as $key => $value) : ?>
+                                                                            <option value="<?= $value->id; ?>"><?= $value->name; ?></option>
+                                                                        <?php endforeach ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="transaction_id" class="col-sm-3 col-form-label">ID Transaksi</label>
+                                                                <div class="col-sm-9">
+                                                                    <input type="text" class="form-control" id="transaction_id" name="transaction_id" value="<?php echo $this->session->userdata('billing_id') ?>">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
-                                        <tbody>
-                                            <?php foreach ($payment as $key => $item) : ?>
-                                                <?php 
-                                                    foreach ($reff as $value) {
-                                                        if ($value->id == $item->channel) {
-                                                            $channel = $value->name;
-                                                        }
-                                                    }
-                                                ?>
-                                                <tr>
-                                                    <td class="text-wrap"><?php echo $key+1 ?></td>
-                                                    <td class="text-wrap"><?php echo $item->application_name ?></td>
-                                                    <td class="text-wrap"><?php echo $item->transaction_id ?></td>
-                                                    <td class="text-wrap"><?php echo $item->department_name ?></td>
-                                                    <td class="text-wrap"><?php echo $item->user_name ?></td>
-                                                    <td class="text-wrap"><?php echo $item->detail ?></td>
-                                                    <td class="text-wrap text-end"><?php echo number_format($item->total) ?></td>
-                                                    <td class="text-wrap"><?php echo $item->status_name ?></td>
-                                                    <td class="text-wrap"><?php echo $item->simponi_id ?></td>
-                                                    <td class="text-wrap"><?php echo $item->billing_id ?></td>
-                                                    <td class="text-wrap"><?php echo $item->ntpn ?></td>
-                                                    <td class="text-wrap"><?php echo $item->ntb ?></td>
-                                                    <td class="text-wrap"><?php echo $item->bank_name ?></td>
-                                                    <td class="text-wrap"><?php echo $channel ?></td>
-                                                    <td class="text-wrap">
-                                                        <?php 
-                                                            if ($item->error_pay == NULL) {
-                                                                echo "-";
-                                                            } else {
-                                                                echo $item->error_pay;
-                                                            }
-                                                            
-                                                        ?>
-                                                    </td>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="row mb-4">
+                                                                <label for="user_id" class="col-sm-3 col-form-label">User</label>
+                                                                <div class="col-sm-9">
+                                                                    <select class="form-control" data-trigger name="user_id" id="user_id">
+                                                                        <option value="">-- Semua User --</option>
+                                                                        <?php foreach ($user as $key => $value) : ?>
+                                                                            <option value="<?= $value->id; ?>"><?= $value->name; ?></option>
+                                                                        <?php endforeach ?>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
 
+                                                    <div class="mt-1">
+                                                        <button type="button"
+                                                            class="btn btn-primary w-md" id="btn_cari">Cari</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row d-flex justify-content-center" id="loading"></div>
+                                    
+                                    <div class="row mt-5">
+                                        <div class="col-12" id="data"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -134,6 +155,34 @@
     <?php $this->load->view("client/partials/sidebar.php") ?>
     
     <?php $this->load->view("client/partials/script.php") ?>
+
+    <script>
+        $(document).ready(function() {
+            data_payment();
+            function data_payment(){
+                $("#loading").html('<div class="spinner-border text-primary m-1 col-12" role="status"></div>');
+                $.post(document.URL + "/data_payment/" , {
+                }, function(data) {
+                    $('#data').html(data);
+                    $("#loading").html('');
+                });                    
+            }
+        })
+        $('#btn_cari').on('click',function(){
+            $("#loading").html('<div class="spinner-border text-primary m-1 col-12" role="status"></div>');
+            $.post(document.URL + "/data_payment/" , {
+                department_id: $('#department_id').val(),
+                billing_id: $('#billing_id').val(),
+                application_id: $('#application_id').val(),
+                transaction_id: $('#transaction_id').val(),
+                user_id: $('#user_id').val(),
+                status: $('#status').val(),
+            }, function(data) {
+                $('#data').html(data);
+                $("#loading").html('');
+            });
+        })
+    </script>
 
 </body>
 
