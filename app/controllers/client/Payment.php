@@ -16,6 +16,6 @@ class Payment extends CI_Controller {
     {
         $data["payment"] = $this->payment_model->getAll();
         $data["reff"] = $this->reff_model->getAll();
-        $this->load->view("admin/payment/index", $data);
+        $this->load->view("client/payment/index", $data);
     }
 }

@@ -5,12 +5,12 @@ class User extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("admin/user_model");
-        $this->load->model("admin/reff_model");
-        $this->load->model("admin/app_model");
-        $this->load->model("admin/department_model");
+        $this->load->model("user_model");
+        $this->load->model("reff_model");
+        $this->load->model("app_model");
+        $this->load->model("department_model");
         // $this->load->library('form_validation');
-        $this->load->model('admin/auth_model');
+        $this->load->model('auth_model');
 		$this->auth_model->cek_login();
     }
 

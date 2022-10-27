@@ -43,7 +43,7 @@
                                             <h5 class="mb-0">Welcome!</h5>
                                             <p class="text-muted mt-2">Sign in to continue to E-Payment.</p>
                                         </div>
-                                        <form class="custom-form mt-4 pt-2" action="<?php echo site_url("admin/Login/proses") ?>" method="POST">
+                                        <form class="custom-form mt-4 pt-2" action="<?php echo site_url("Login/proses") ?>" method="POST">
                                             <div class="mb-3">
                                                 <label class="form-label" for="name">Username</label>
                                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter username">

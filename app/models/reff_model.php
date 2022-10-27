@@ -31,6 +31,11 @@ class Reff_model extends CI_Model
     {
         return $this->db->get_where($this->_table, ["type" => "USER_ROLE"])->result();
     }
+
+    public function status_billing()
+    {
+        return $this->db->get_where($this->_table, ["type" => "STATUS_BILLING"])->result();
+    }
     
     public function getById($id)
     {

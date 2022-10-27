@@ -28,6 +28,7 @@ class Auth_model extends CI_Model
             if (password_verify($password, $data_user->password)) {
                 $this->session->set_userdata('name',$name);
 				$this->session->set_userdata('nama',$data_user->name);
+				$this->session->set_userdata('department_id',$data_user->department_id);
 				$this->session->set_userdata('is_login',TRUE);
                 return TRUE;
             } else {
@@ -44,7 +45,7 @@ class Auth_model extends CI_Model
     {
         if(empty($this->session->userdata('is_login')))
         {
-			redirect('index.php/admin/Login');
+			redirect('index.php/Login');
 		}
     }
 }

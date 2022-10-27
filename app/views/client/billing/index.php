@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-    <?php $this->load->view("admin/partials/head.php") ?>
-    <?php $this->load->view("admin/partials/css.php") ?>
+    <?php $this->load->view("client/partials/head.php") ?>
+    <?php $this->load->view("client/partials/css.php") ?>
 </head>
 
 <body>
@@ -13,9 +13,9 @@
     <!-- Begin page -->
     <div id="layout-wrapper">
 
-        <?php $this->load->view("admin/partials/header.php") ?>
+        <?php $this->load->view("client/partials/header.php") ?>
 
-        <?php $this->load->view("admin/partials/menu.php") ?>
+        <?php $this->load->view("client/partials/menu.php") ?>
 
         <!-- ============================================================== -->
         <!-- Start right Content here -->
@@ -33,7 +33,7 @@
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="<?php echo site_url('admin/Dashboard') ?>">Dashboard</a></li>
+                                        <li class="breadcrumb-item"><a href="<?php echo site_url('client/Dashboard') ?>">Dashboard</a></li>
                                         <li class="breadcrumb-item active">Billing</li>
                                     </ol>
                                 </div>
@@ -62,28 +62,12 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="row mb-4">
-                                                                <label for="department" class="col-sm-3 col-form-label">Department</label>
-                                                                <div class="col-sm-9">
-                                                                    <select class="form-control" data-trigger name="department" id="department">
-                                                                        <option value="">-- Semua department --</option>
-                                                                        <?php foreach ($department as $key => $value) : ?>
-                                                                            <option value="<?= $value->id; ?>"><?= $value->name; ?></option>
-                                                                        <?php endforeach ?>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="row mb-4">
                                                                 <label for="billing_id" class="col-sm-3 col-form-label">ID Billing</label>
                                                                 <div class="col-sm-9">
                                                                     <input type="text" class="form-control" id="billing_id" name="billing_id" value="<?php echo $this->session->userdata('billing_id') ?>">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="row mb-4">
                                                                 <label for="datepicker-basic" class="col-sm-3 col-form-label">Tanggal Billing</label>
@@ -92,6 +76,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+
+                                                    <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="row mb-4">
                                                                 <label for="status_label" class="col-sm-3 col-form-label">Status</label>
@@ -105,9 +92,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="row mb-4">
                                                                 <label for="date_simponi" class="col-sm-3 col-form-label">Tanggal Simponi</label>
@@ -144,16 +129,16 @@
             </div>
         </div>
 
-        <?php $this->load->view("admin/partials/footer.php") ?>
+        <?php $this->load->view("client/partials/footer.php") ?>
 
         <!-- end main content-->
 
     </div>
     <!-- END layout-wrapper -->
     
-    <?php $this->load->view("admin/partials/sidebar.php") ?>
+    <?php $this->load->view("client/partials/sidebar.php") ?>
 
-    <?php $this->load->view("admin/partials/script.php") ?>
+    <?php $this->load->view("client/partials/script.php") ?>
 
     <script>
         $(document).ready(function() {
@@ -173,7 +158,6 @@
         $('#btn_cari').on('click',function(){
             $("#loading").html('<div class="spinner-border text-primary m-1 col-12" role="status"></div>');
             $.post(document.URL + "/data_billing/" , {
-                department: $('#department').val(),
                 billing_id: $('#billing_id').val(),
                 date_register: $('#date_register').val(),
                 status: $('#status').val(),

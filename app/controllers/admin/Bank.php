@@ -5,9 +5,9 @@ class Bank extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("admin/bank_model");
+        $this->load->model("bank_model");
         // $this->load->library('form_validation');
-        $this->load->model('admin/auth_model');
+        $this->load->model('auth_model');
 		$this->auth_model->cek_login();
     }
 

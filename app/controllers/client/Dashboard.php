@@ -18,6 +18,6 @@ class Dashboard extends CI_Controller {
         $data["bank"] = $this->bank_model->getFive();
         $data["billing"] = $this->billing_model->getFive();
         $data["department"] = $this->department_model->getFive();
-        $this->load->view("admin/index", $data);
+        $this->load->view("client/index", $data);
     }
 }
