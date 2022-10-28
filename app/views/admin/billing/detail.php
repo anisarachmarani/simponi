@@ -22,6 +22,12 @@
             $status_id = $value->name;
         }
     }
+    
+    foreach ($pnbp as $value) {
+        if ($value->id == $billing_detail->pnbp_id) {
+            $pnbp_id = $value->amount;
+        }
+    }
 ?>
 <div class="modal-content">
     <div class="modal-header">
@@ -44,6 +50,11 @@
                 <p class="col-4">User</p>
                 <p class="col-auto">:</p>
                 <p class="col-7 fw-bold"><?= $user_name ?></p>
+            </div>
+            <div class="row">
+                <p class="col-4">Keterangan</p>
+                <p class="col-auto">:</p>
+                <p class="col-7 fw-bold"><?= ($billing_detail->error_pay != null) ? $billing_detail->error_pay : '-' ?></p>
             </div>
         </div>
         <div class="col-6">
@@ -68,18 +79,22 @@
                 <table class="table mb-0 table-bordered">
                     <thead class="table-light">
                         <tr>
+                            <th>Trader</th>
                             <th>Detail</th>
+                            <th>Volume</th>
+                            <th>Harga</th>
                             <th>Total</th>
                             <th>Status</th>
-                            <th>Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><?= $billing->detail; ?></td>
-                            <td class="text-end"><?= number_format($billing->total); ?></td>
+                            <td><?= $billing_detail->trader; ?></td>
+                            <td><?= $billing_detail->detail; ?></td>
+                            <td><?= number_format($billing_detail->volume); ?></td>
+                            <td class="text-end"><?= number_format($pnbp_id); ?></td>
+                            <td class="text-end"><?= number_format($billing_detail->total); ?></td>
                             <td><?= $status_id; ?></td>
-                            <td><?= ($billing->error_pay != null) ? $billing->error_pay : '' ?></td>
                         </tr>
                     </tbody>
                 </table>

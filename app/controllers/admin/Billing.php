@@ -10,6 +10,7 @@ class Billing extends CI_Controller {
         $this->load->model("reff_model");
         $this->load->model("app_model");
         $this->load->model("user_model");
+        $this->load->model("pnbp_model");
         // $this->load->library('form_validation');
         $this->load->model('auth_model');
 		$this->auth_model->cek_login();
@@ -41,7 +42,11 @@ class Billing extends CI_Controller {
         $data["application"] = $this->app_model->getAll();
         $data["user"] = $this->user_model->getAll();
         $data["status"] = $this->reff_model->status_billing();
+        $data["pnbp"] = $this->pnbp_model->getAll();
+
         $data["billing"] = $this->billing_model->getById($id);
+        $data["billing_detail"] = $this->billing_model->detail_billing($id);
+        
         echo $this->load->view("admin/billing/detail", $data);
     }
 }

@@ -3,6 +3,7 @@
 class Billing_model extends CI_Model
 {
     private $_tbilling = "t_billing";
+    private $_tbillingDetail = "t_billing_detail";
     private $_tdepartment = "m_department";
     private $_treff = "m_reff";
     
@@ -80,7 +81,12 @@ class Billing_model extends CI_Model
     
     public function getById($id)
     {
-        return $this->db->get_where($this->_tbilling, ["id" => $id])->row();
+      return $this->db->get_where($this->_tbilling, ["id" => $id])->row();
+    }
+
+    public function detail_billing($id)
+    {
+      return $this->db->get_where($this->_tbillingDetail, ["billing_id" => $id])->row();
     }
 
     // public function save()
