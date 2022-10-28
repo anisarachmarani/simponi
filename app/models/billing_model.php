@@ -78,10 +78,10 @@ class Billing_model extends CI_Model
       return $query->result();
     }
     
-    // public function getById($id)
-    // {
-    //     return $this->db->get_where($this->_tbilling, ["product_id" => $id])->row();
-    // }
+    public function getById($id)
+    {
+        return $this->db->get_where($this->_tbilling, ["id" => $id])->row();
+    }
 
     // public function save()
     // {
