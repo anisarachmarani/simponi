@@ -32,6 +32,7 @@ class Department extends CI_Controller {
             $department->save();
             // var_dump($department);
             // die();
+            $this->session->set_flashdata('success', 'Berhasil menambahkan Department');
             redirect(site_url('admin/Department'));
         } else {
             redirect(site_url('admin/Department/create'));
@@ -54,6 +55,7 @@ class Department extends CI_Controller {
 
         if ($department) {
             $department->update();
+            $this->session->set_flashdata('success', 'Berhasil mengupdate Department');
         }
         
         redirect(site_url('admin/Department'));
@@ -64,6 +66,7 @@ class Department extends CI_Controller {
         if (!isset($id)) show_404();
             
         if ($this->department_model->delete($id)) {
+            $this->session->set_flashdata('success', 'Berhasil menghapus Department');
             redirect(site_url('admin/Department'));
         }
     }

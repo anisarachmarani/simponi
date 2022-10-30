@@ -20,6 +20,7 @@
         <link href="<?php echo base_url() ?>assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
         <link href="<?php echo base_url() ?>assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url() ?>assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -115,6 +116,22 @@
         <script src="<?php echo base_url() ?>assets/libs/pace-js/pace.min.js"></script>
         <!-- password addon init -->
         <script src="<?php echo base_url() ?>assets/js/pages/pass-addon.init.js"></script>
+
+        <!-- Sweet Alerts js -->
+        <script src="<?php echo base_url() ?>assets/libs/sweetalert2/sweetalert2.min.js"></script>
+
+        <script>
+            <?php if ($this->session->flashdata('error')) : ?>
+                Swal.fire(
+                    {
+                        title: "Gagal Login",
+                        text: '<?php echo $this->session->flashdata('error'); ?>',
+                        icon: 'error',
+                        confirmButtonColor: '#5156be'
+                    }
+                )
+            <?php endif ?>
+        </script>
 
     </body>
 

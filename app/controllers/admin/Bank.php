@@ -30,7 +30,7 @@ class Bank extends CI_Controller {
 
         if ($bank) {
             $bank->save();
-            // $this->session->set_flashdata('success', 'Berhasil disimpan');
+            $this->session->set_flashdata('success', 'Berhasil menambahkan Bank');
         }
 
         redirect(site_url('admin/Bank'));
@@ -52,6 +52,7 @@ class Bank extends CI_Controller {
 
         if ($bank) {
             $bank->update();
+            $this->session->set_flashdata('success', 'Berhasil mengupdate Bank');
         }
         
         redirect(site_url('admin/Bank'));
@@ -62,6 +63,7 @@ class Bank extends CI_Controller {
         if (!isset($id)) show_404();
             
         if ($this->bank_model->delete($id)) {
+            $this->session->set_flashdata('success', 'Berhasil menghapus Bank');
             redirect(site_url('admin/Bank'));
         }
     }

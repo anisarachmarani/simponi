@@ -39,5 +39,17 @@
 
 <!-- init js -->
 <script src="<?= base_url() ?>assets/js/pages/form-advanced.init.js"></script>
-
+<script src="<?= base_url() ?>assets/libs/alertifyjs/build/alertify.min.js"></script>
+<script src="<?= base_url() ?>assets/js/pages/notification.init.js"></script>
+<script>
+    <?php if($this->session->flashdata('success')){ ?>
+        alertify.success("<?php echo $this->session->flashdata('success'); ?>");
+    <?php }else if($this->session->flashdata('error')){  ?>
+        alertify.error("<?php echo $this->session->flashdata('error'); ?>");
+    <?php }else if($this->session->flashdata('warning')){  ?>
+        alertify.warning("<?php echo $this->session->flashdata('warning'); ?>");
+    <?php }else if($this->session->flashdata('info')){  ?>
+        alertify.info("<?php echo $this->session->flashdata('info'); ?>");
+    <?php } ?>
+</script>
 <script src="<?= base_url() ?>assets/js/app.js"></script>
