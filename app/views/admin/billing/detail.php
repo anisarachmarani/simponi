@@ -93,7 +93,7 @@
                             <td><?= $billing_detail->detail; ?></td>
                             <td><?= number_format($billing_detail->volume); ?></td>
                             <td class="text-end"><?= number_format($pnbp_id); ?></td>
-                            <td class="text-end"><?= number_format($billing_detail->total); ?></td>
+                            <td class="text-end"><?= number_format($billing->total); ?></td>
                             <td><?= $status_id; ?></td>
                         </tr>
                     </tbody>
