@@ -2,10 +2,10 @@
     <thead>
         <tr>
             <th>No</th>
+            <th>ID Billing</th>
             <th>Tanggal Billing</th>
             <th>Tanggal Simponi</th>
             <th>Department</th>
-            <th>ID Billing</th>
             <th>Jumlah</th>
             <th>Status</th>
             <th>Error</th>
@@ -18,9 +18,6 @@
         <?php foreach ($billing as $key => $item) : ?>
         <tr>
             <td><span class="text-wrap"><?php echo $key+1 ?></span></td>
-            <td><span class="text-wrap"><?php echo date('d M Y, H:i', strtotime($item->date_register)) ?></span></td>
-            <td><span class="text-wrap"><?php echo date('d M Y, H:i', strtotime($item->date_simponi)) ?></span></td>
-            <td><span class="text-wrap"><?php echo $item->department_name ?></span></td>
             <td>
                 <span class="text-wrap">
                     <a href="javascript:void(0)" data-bs-toggle="modal" class="view_data" data-bs-target=".bs-example-modal-lg" type="button" id="<?php echo $item->id ?>">
@@ -28,6 +25,9 @@
                     </a>
                 </span>
             </td>
+            <td><span class="text-wrap"><?php echo date('d M Y, H:i', strtotime($item->date_register)) ?></span></td>
+            <td><span class="text-wrap"><?php echo date('d M Y, H:i', strtotime($item->date_simponi)) ?></span></td>
+            <td><span class="text-wrap"><?php echo $item->department_name ?></span></td>
             <td class="text-end"><span class="text-wrap"><?php echo number_format($item->total);?></span></td>
             <td><span class="text-wrap"><?php echo $item->status_name ?></span></td>
             <td><span class="text-wrap"><?php echo ($item->error !== null) ? $item->error : '-' ?></span></td>

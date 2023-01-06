@@ -27,6 +27,7 @@ class Billing_model extends CI_Model
         $this->_treff.id AS status, $this->_treff.name AS status_name, 
         $this->_tdepartment.id AS department_id, $this->_tdepartment.name AS department_name, 
       ");
+      // $this->db->where("DATE_FORMAT(date_register,'%m')", 12);
       $this->db->where("department_id like '%$department%' ");
       $this->db->where("date_register != '' ");
       $this->db->where("billing_id like '%$billing_id%' ");
@@ -70,6 +71,24 @@ class Billing_model extends CI_Model
         $this->_tdepartment.id AS department_id, $this->_tdepartment.name AS department_name, 
         $this->_treff.id AS status, $this->_treff.name AS status_name"
       );
+      $this->db->order_by("date_register", "desc");
+      $this->db->limit(5);
+      $this->db->from("$this->_tbilling");
+      $this->db->join("$this->_tdepartment","$this->_tbilling.department_id = $this->_tdepartment.id"); 
+      $this->db->join("$this->_treff","$this->_tbilling.status = $this->_treff.id"); 
+      $query = $this->db->get();
+      return $query->result();
+    }
+
+    public function getFiveClient()
+    {
+      $department_id = $this->session->userdata('department_id');
+      $this->db->select("
+        $this->_tbilling.*, 
+        $this->_tdepartment.id AS department_id, $this->_tdepartment.name AS department_name, 
+        $this->_treff.id AS status, $this->_treff.name AS status_name"
+      );
+      $this->db->where("department_id like '$department_id' ");
       $this->db->order_by("date_register", "desc");
       $this->db->limit(5);
       $this->db->from("$this->_tbilling");

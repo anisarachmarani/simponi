@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="card-body">
 
-                                    <form action="<?php echo site_url("admin/User/update") ?>" method="POST">
+                                    <form action="<?php echo site_url("index.php/admin/User/update") ?>" method="POST">
                                         <input type="hidden" name="id" value="<?= $user->id; ?>">
                                         <div class="row">
                                             <div class="col-md-12 col-lg-6">
@@ -139,7 +139,7 @@
                                                 <div class="col-sm-9">
                                                     <div>
                                                         <button type="submit" class="btn btn-primary w-md">Simpan</button>
-                                                        <a href="<?php echo site_url("admin/User") ?>" class="btn btn-secondary w-md">Batal</a>
+                                                        <a href="<?php echo site_url("index.php/admin/User") ?>" class="btn btn-secondary w-md">Batal</a>
                                                     </div>
                                                 </div>
                                             </div>

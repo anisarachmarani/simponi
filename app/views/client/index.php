@@ -54,11 +54,11 @@
                                         <table class="table mb-0">
                                             <thead>
                                                 <tr>
-                                                    <th>Tanggal</th>
+                                                    <th>ID Billing</th>
+                                                    <th>Tanggal Billing</th>
                                                     <th>Tanggal Simponi</th>
-                                                    <th>Jumlah</th>
                                                     <th>Departement</th>
-                                                    <th>Nomor Billing</th>
+                                                    <th>Jumlah</th>
                                                     <th>Status</th>
                                                     <th>Error</th>
                                                     <th>Error Pembayaran</th>
@@ -67,11 +67,11 @@
                                             <tbody>
                                                 <?php foreach ($billing as $key => $item) : ?>
                                                     <tr>
+                                                        <td><?php echo $item->billing_id ?></td>
                                                         <td><?php echo date('d M Y, H:i', strtotime($item->date_register)) ?></td>
                                                         <td><?php echo date('d M Y, H:i', strtotime($item->date_simponi)) ?></td>
-                                                        <td class="text-end"><?php echo number_format($item->total);?></td>
                                                         <td><?php echo $item->department_name;?></td>
-                                                        <td><?php echo $item->billing_id ?></td>
+                                                        <td class="text-end"><?php echo number_format($item->total);?></td>
                                                         <td><?php echo $item->status_name ?></td>
                                                         <td><?php echo ($item->error != NULL) ? "$item->error" : '-' ?></td>
                                                         <td><?php echo ($item->error_pay != NULL) ? "$item->error_pay" : '-' ?></td>

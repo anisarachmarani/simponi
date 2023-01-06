@@ -2,8 +2,9 @@
     <thead>
         <tr>
             <th class="text-wrap">#</th>
+            <th class="">Tgl Bayar</th>
             <th class="text-wrap">Aplikasi</th>
-            <th class="text-wrap">ID Transaksi</th>
+            <!-- <th class="text-wrap">ID Transaksi</th> -->
             <th class="text-wrap">Department</th>
             <th class="text-wrap">User</th>
             <th class="text-wrap">Detail</th>
@@ -60,8 +61,9 @@
             ?>
             <tr>
                 <td class="text-wrap"><?php echo $key+1 ?></td>
+                <td class="text-wrap"><?php echo date('d M Y, H:i', strtotime($item->date_simponi)) ?></td>
                 <td class="text-wrap"><?php echo $application_name ?></td>
-                <td class="text-wrap"><?php echo $item->transaction_id ?></td>
+                <!-- <td class="text-wrap"><?php echo $item->transaction_id ?></td> -->
                 <td class="text-wrap"><?php echo $department_name ?></td>
                 <td class="text-wrap"><?php echo $user_name ?></td>
                 <td class="text-wrap"><?php echo $item->detail ?></td>

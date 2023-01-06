@@ -42,7 +42,7 @@ class User extends CI_Controller {
             $this->session->set_flashdata('success', 'Berhasil menambahkan User');
         }
 
-        redirect(site_url('admin/User'));
+        redirect(site_url('index.php/admin/User'));
     }
 
     public function edit($id=null)
@@ -66,7 +66,7 @@ class User extends CI_Controller {
             $this->session->set_flashdata('success', 'Berhasil mengupdate User');
         }
         
-        redirect(site_url('admin/User'));
+        redirect(site_url('index.php/admin/User'));
     }
 
     public function delete($id=null)
@@ -75,7 +75,7 @@ class User extends CI_Controller {
             
         if ($this->user_model->delete($id)) {
             $this->session->set_flashdata('success', 'Berhasil menghapus User');
-            redirect(site_url('admin/User'));
+            redirect(site_url('index.php/admin/User'));
         }
     }
 }

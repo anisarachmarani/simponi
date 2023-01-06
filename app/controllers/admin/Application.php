@@ -33,7 +33,7 @@ class Application extends CI_Controller {
             // $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
 
-        redirect(site_url('admin/Application'));
+        redirect(site_url('index.php/admin/Application'));
     }
 
     public function edit($id = null)
@@ -54,7 +54,7 @@ class Application extends CI_Controller {
             $app->update();
         }
         
-        redirect(site_url('admin/Application'));
+        redirect(site_url('index.php/admin/Application'));
     }
 
     public function delete($id=null)
@@ -62,7 +62,7 @@ class Application extends CI_Controller {
         if (!isset($id)) show_404();
             
         if ($this->app_model->delete($id)) {
-            redirect(site_url('admin/Application'));
+            redirect(site_url('index.php/admin/Application'));
         }
     }
 }

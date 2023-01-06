@@ -42,7 +42,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url("admin/Department/create") ?>">
+                        <a href="<?php echo site_url("index.php/admin/Department/create") ?>">
                             <span data-key="t-tambah-departemen">Tambah Departemen</span>
                         </a>
                     </li>
@@ -62,7 +62,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url("admin/Application/create") ?>">
+                        <a href="<?php echo site_url("index.php/admin/Application/create") ?>">
                             <span data-key="t-tambah-aplikasi">Tambah Aplikasi</span>
                         </a>
                     </li>
@@ -82,7 +82,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url("admin/User/create") ?>">
+                        <a href="<?php echo site_url("index.php/admin/User/create") ?>">
                             <span data-key="t-tambah-user">Tambah User</span>
                         </a>
                     </li>
@@ -102,7 +102,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url("admin/Bank/create") ?>">
+                        <a href="<?php echo site_url("index.php/admin/Bank/create") ?>">
                             <span data-key="t-tambah-bank">Tambah Bank</span>
                         </a>
                     </li>
@@ -122,7 +122,7 @@
                     </li>
 
                     <li>
-                        <a href="<?php echo site_url("admin/Reff/create") ?>">
+                        <a href="<?php echo site_url("index.php/admin/Reff/create") ?>">
                             <span data-key="t-tambah-referensi">Tambah Referensi</span>
                         </a>
                     </li>

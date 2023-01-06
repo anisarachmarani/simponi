@@ -33,9 +33,9 @@ class Reff extends CI_Controller {
             // var_dump($reff);
             // die();
             $this->session->set_flashdata('success', 'Berhasil menambahkan Referensi');
-            redirect(site_url('admin/Reff'));
+            redirect(site_url('index.php/admin/Reff'));
         } else {
-            redirect(site_url('admin/Reff/create'));
+            redirect(site_url('index.php/admin/Reff/create'));
         }
     }
 
@@ -58,7 +58,7 @@ class Reff extends CI_Controller {
             $this->session->set_flashdata('success', 'Berhasil mengupdate Referensi');
         }
         
-        redirect(site_url('admin/Reff'));
+        redirect(site_url('index.php/admin/Reff'));
     }
 
     public function delete($id=null)
@@ -67,7 +67,7 @@ class Reff extends CI_Controller {
             
         if ($this->reff_model->delete($id)) {
             $this->session->set_flashdata('success', 'Berhasil menghapus Referensi');
-            redirect(site_url('admin/Reff'));
+            redirect(site_url('index.php/admin/Reff'));
         }
     }
 }

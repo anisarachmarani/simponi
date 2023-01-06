@@ -81,7 +81,7 @@
                         <tr>
                             <th>Trader</th>
                             <th>Detail</th>
-                            <th>Volume</th>
+                            <!-- <th>Volume</th> -->
                             <th>Harga</th>
                             <th>Total</th>
                             <th>Status</th>
@@ -91,7 +91,7 @@
                         <tr>
                             <td><?= $billing_detail->trader; ?></td>
                             <td><?= $billing_detail->detail; ?></td>
-                            <td><?= number_format($billing_detail->volume); ?></td>
+                            <!-- <td><?= number_format($billing_detail->volume); ?></td> -->
                             <td class="text-end"><?= number_format($pnbp_id); ?></td>
                             <td class="text-end"><?= number_format($billing->total); ?></td>
                             <td><?= $status_id; ?></td>

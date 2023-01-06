@@ -57,7 +57,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-lg-6">
                                             <div class="mt-4 mt-lg-0">
-                                                <form action="<?php echo site_url("admin/Reff/store") ?>" method="POST">
+                                                <form action="<?php echo site_url("index.php/admin/Reff/store") ?>" method="POST">
                                                     <div class="row mb-4">
                                                         <label for="id" class="col-sm-3 col-form-label">ID Referensi</label>
                                                         <div class="col-sm-9">
@@ -90,7 +90,7 @@
                                                         <div class="col-sm-9">
                                                             <div>
                                                                 <button type="submit" class="btn btn-primary w-md">Simpan</button>
-                                                                <a href="<?php echo site_url("admin/Reff") ?>" class="btn btn-secondary w-md">Batal</a>
+                                                                <a href="<?php echo site_url("index.php/admin/Reff") ?>" class="btn btn-secondary w-md">Batal</a>
                                                             </div>
                                                         </div>
                                                     </div>

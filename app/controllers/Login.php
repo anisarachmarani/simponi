@@ -22,9 +22,9 @@ class Login extends CI_Controller {
 		if($this->auth_model->login_user($name,$password) && $query->status == 'US01')
 		{
 			if ($query->role == "RL01") {
-				redirect(site_url('admin/Dashboard'));
+				redirect(site_url('index.php/admin/Dashboard'));
 			} else if ($query->role == "RL03") {
-				redirect(site_url('client/Dashboard'));
+				redirect(site_url('index.php/client/Dashboard'));
 			}
 			
 		}
@@ -33,7 +33,7 @@ class Login extends CI_Controller {
 			// var_dump($this);
 			// die();
 			$this->session->set_flashdata('error','Username & Password salah / Status akun tidak aktif');
-			redirect(site_url('Login'));
+			redirect(site_url('index.php/Login'));
 		}
 	}
 
@@ -42,7 +42,7 @@ class Login extends CI_Controller {
 		$this->session->sess_destroy('username');
 		$this->session->sess_destroy('nama');
 		$this->session->sess_destroy('is_login');
-		redirect(site_url('Login'));
+		redirect(site_url('index.php/Login'));
 	}
 
 	

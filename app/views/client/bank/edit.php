@@ -57,7 +57,7 @@
                                     <div class="row">
                                         <div class="col-md-12 col-lg-6">
                                             <div class="mt-4 mt-lg-0">
-                                                <form action="<?php echo site_url("client/Bank/update") ?>" method="POST">
+                                                <form action="<?php echo site_url("index.php/client/Bank/update") ?>" method="POST">
                                                 <input type="hidden" name="id" value="<?php echo $bank->id?>" />
                                                     <div class="row mb-4">
                                                         <label for="name" class="col-sm-3 col-form-label">Nama Bank</label>
@@ -77,7 +77,7 @@
                                                         <div class="col-sm-9">
                                                             <div>
                                                                 <button type="submit" class="btn btn-primary w-md">Simpan</button>
-                                                                <a href="<?php echo site_url("client/Bank") ?>" class="btn btn-secondary w-md">Batal</a>
+                                                                <a href="<?php echo site_url("index.php/client/Bank") ?>" class="btn btn-secondary w-md">Batal</a>
                                                             </div>
                                                         </div>
                                                     </div>
