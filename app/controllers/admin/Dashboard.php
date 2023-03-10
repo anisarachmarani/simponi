@@ -15,6 +15,7 @@ class Dashboard extends CI_Controller {
 
 	public function index()
     {
+        // var_dump('hei');die;
         $data["bank"] = $this->bank_model->getFive();
         $data["billing"] = $this->billing_model->getFive();
         $data["department"] = $this->department_model->getFive();

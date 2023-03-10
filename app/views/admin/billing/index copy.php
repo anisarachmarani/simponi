@@ -4,13 +4,6 @@
 <head>
     <?php $this->load->view("admin/partials/head.php") ?>
     <?php $this->load->view("admin/partials/css.php") ?>
-    <style>
-        @media only screen and (max-width: 600px) {
-            td span {
-                white-space: normal!important;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -136,25 +129,7 @@
                                     <div class="row d-flex justify-content-center" id="loading"></div>
 
                                     <div class="row mt-5">
-                                        <table id="table-billing" class="table table-bordered dt-responsive  nowrap w-100">
-                                            <thead>
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>ID Billing</th>
-                                                    <th>Tanggal Billing</th>
-                                                    <th>Tanggal Simponi</th>
-                                                    <th>Department</th>
-                                                    <th>Jumlah</th>
-                                                    <th>Status</th>
-                                                    <th>Error</th>
-                                                    <th>Error Pembayaran</th>
-                                                    <th>Tanggal Expired</th>
-                                                    <th>Tanggal Respon</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            </tbody>
-                                        </table>
+                                        <div class="col-12" id="data"></div>
                                     </div>
 
                                 </div>
@@ -163,11 +138,6 @@
                         <!-- end col -->
                     </div>
                     <!-- end row -->
-                    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered" id="detail">
-                            
-                        </div><!-- /.modal-dialog -->
-                    </div><!-- /.modal -->
                 </div>
                 <!-- container-fluid -->
             </div>
@@ -184,102 +154,35 @@
 
     <?php $this->load->view("admin/partials/script.php") ?>
 
-    <script type="text/javascript">
-        var table;
-
+    <script>
         $(document).ready(function() {
-            //datatables
-            table = $('#table-billing').DataTable({
+            data_billing();
 
-                "processing": true, //Feature control the processing indicator.
-                "serverSide": true, //Feature control DataTables' server-side processing mode.
-                "order": [], //Initial no order.
-
-                // Load data for the table's content from an Ajax source
-                "ajax": {
-                    "url": "<?php echo site_url('admin/Billing/ajax_list') ?>",
-                    "type": "POST", 
-                    "data": function(data) {
-                        data.department = $('#department').val();
-                        data.billing_id = $('#billing_id').val();
-                        data.date_register = $('#date_register').val();
-                        data.status = $('#status').val();
-                        data.date_simponi = $('#date_simponi').val();
-                    },
-                },
-
-                //Set column definition initialisation properties.
-                "columnDefs": [{
-                    "targets": [0], //first column / numbering column
-                    "orderable": false, //set not orderable
-                }, ],
-            });
-
-            $('#btn_cari').click(function(){ //button filter event click
-                table.ajax.reload();  //just reload table
-            });
-
-            $('.view_data').on('click', function() {
-                console.log("click");
-                var idBilling = $(this).attr("id");
-                console.log(idBilling);
+            function data_billing() {
                 $("#loading").html('<div class="spinner-border text-primary m-1 col-12" role="status"></div>');
-                $.post(document.URL + "/detail_billing/", {
-                    id: idBilling,
+                $.post(document.URL + "/data_billing/", {
+                    // thnpengadaan: '',
+                    // blnpengadaan: '',
+                    // ipska: '',
                 }, function(data) {
-                    $('#detail').html(data);
+                    $('#data').html(data);
                     $("#loading").html('');
                 });
-            });
-
-            
-        });
-        </script>
-
-    <script>
-        function theFunction($id) {
-            var idBilling = $id;
+            }
+        })
+        $('#btn_cari').on('click', function() {
             $("#loading").html('<div class="spinner-border text-primary m-1 col-12" role="status"></div>');
-            $.post(document.URL + "/detail_billing/", {
-                id: idBilling,
+            $.post(document.URL + "/data_billing/", {
+                department: $('#department').val(),
+                billing_id: $('#billing_id').val(),
+                date_register: $('#date_register').val(),
+                status: $('#status').val(),
+                date_simponi: $('#date_simponi').val(),
             }, function(data) {
-                    console.log(data);
-                    $('#detail').html(data);
-                    $("#loading").html('');
-                });
-        }
-    </script>
-
-    <script>
-        // $(document).ready(function() {
-        //     data_billing();
-
-        //     function data_billing() {
-        //         $("#loading").html('<div class="spinner-border text-primary m-1 col-12" role="status"></div>');
-        //         $.post(document.URL + "/data_billing/", {
-        //             // thnpengadaan: '',
-        //             // blnpengadaan: '',
-        //             // ipska: '',
-        //         }, function(data) {
-        //             $('#data').html(data);
-        //             $("#loading").html('');
-        //         });
-        //     }
-        // })
-
-        // $('#btn_cari').on('click', function() {
-        //     $("#loading").html('<div class="spinner-border text-primary m-1 col-12" role="status"></div>');
-        //     $.post(document.URL + "/data_billing/", {
-        //         department: $('#department').val(),
-        //         billing_id: $('#billing_id').val(),
-        //         date_register: $('#date_register').val(),
-        //         status: $('#status').val(),
-        //         date_simponi: $('#date_simponi').val(),
-        //     }, function(data) {
-        //         $('#data').html(data);
-        //         $("#loading").html('');
-        //     });
-        // })
+                $('#data').html(data);
+                $("#loading").html('');
+            });
+        })
     </script>
 
 </body>
