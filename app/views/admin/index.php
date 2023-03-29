@@ -83,7 +83,7 @@
                                                 <tr>
                                                     <td><?= $channel->name; ?></td>
                                                     <td class="text-end"><?= $channel->jumlah; ?></td>
-                                                </tr>x
+                                                </tr>
                                             <?php endforeach ?>
                                         </table>
                                     </div>
