@@ -5,6 +5,7 @@ class Payment_model extends CI_Model
     private $_tpayment = "t_payment";
     private $_tdepartment = "m_department";
     private $_treff = "m_reff";
+    private $_tbank = "m_bank";
     
     public $id;
     public $department_id;
@@ -16,7 +17,7 @@ class Payment_model extends CI_Model
 
     public function getAll($department_id, $billing_id, $application_id, $transaction_id, $user_id, $status)
     {
-      $this->db->where("date_register != '' ");
+      // $this->db->where("date_register != '' ");
       $this->db->where("department_id like '%$department_id%' ");
       $this->db->where("billing_id like '%$billing_id%' ");
       $this->db->where("application_id like '%$application_id%' ");
@@ -59,6 +60,51 @@ class Payment_model extends CI_Model
       $this->db->join("$this->_treff","$this->_tpayment.status = $this->_treff.id"); 
       $query = $this->db->get();
       return $query->result();
+    }
+
+    public function graphPayment()
+    {
+      $this->db->select('DATE(x.date_register) as tanggal, COUNT(DATE(x.date_register)) as jumlah');
+      $this->db->from("$this->_tpayment x");
+      $this->db->where("YEAR(x.date_register)", date('Y'));
+      $this->db->where("MONTH(DATE(x.date_register))", date('m'));
+      $this->db->group_by("DATE(x.date_register)");
+      $this->db->order_by("DATE(x.date_register)", "asc");
+
+      $query = $this->db->get();
+      $result = $query->result();
+
+      return json_encode($result);
+    }
+
+    public function graphPaymentMonth()
+    {
+      $this->db->select('MONTH(x.date_register) as bulan, COUNT(MONTH(x.date_register)) as jumlah');
+      $this->db->from("$this->_tpayment x");
+      $this->db->where("YEAR(x.date_register)", date('Y'));
+      $this->db->group_by("MONTH(x.date_register)");
+      $this->db->order_by("MONTH(x.date_register)", "asc");
+
+      $query = $this->db->get();
+      $result = $query->result();
+
+      return json_encode($result);
+    }
+
+    public function bank_stats()
+    {
+      $this->db->select("y.name, COUNT(x.bank_id) as jumlah");
+      $this->db->from("$this->_tpayment x");
+      $this->db->join("$this->_tbank y", "x.bank_id = y.id", "left");
+      $this->db->where("YEAR(x.date_created)", date('Y'));
+      $this->db->where("MONTH(x.date_created)", date('m'));
+      $this->db->group_by("x.bank_id");
+      $this->db->order_by("jumlah", "desc");
+
+      $query = $this->db->get();
+      $result = $query->result();
+
+      return $result;
     }
     
     // public function getById($id)
